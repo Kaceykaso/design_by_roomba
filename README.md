@@ -24,7 +24,7 @@ Observations
 
 Equipment:
 <ul>
-<li><a href="http://store.irobot.com/product/index.jsp?productId=2586252">Roomba Create</a><li>
-<li>Website: (this)</li>
+<li><a href="http://store.irobot.com/product/index.jsp?productId=2586252">Roomba Create</a></li>
+<li>Website: Kaceykaso.github.io/design_by_roomba</li>
 <li>Raspberry Pi or Arduino (wifi)</li>
 </ul>
