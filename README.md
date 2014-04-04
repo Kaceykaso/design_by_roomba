@@ -27,7 +27,7 @@ Observations
 Equipment:
 <ul>
 <li><a href="http://store.irobot.com/product/index.jsp?productId=2586252">Roomba Create</a></li>
-<li>Website with basic form: Kaceykaso.github.io/design_by_roomba</li>
+<li>Website with basic form</li>
 <li>Raspberry Pi or Arduino Yun</li>
 <li>Gallery (Undergrad show or Best of ICAM?)</li>
 <li>Large construction paper</li>
