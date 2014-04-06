@@ -2,7 +2,7 @@ Design by Roomba
 ================
 Design by Committee by Design
 
-Roomba draws crowdsourced picture over a period of time; based on a series of commands submitted through a web app, and received by a Raspberry Pi (or Arduino) attached to the Roomba. Picture will eventually be created during a gallery exhibition.
+Roomba draws crowdsourced picture over a period of time; based on a series of commands submitted through a web app, and received by a Raspberry Pi (or Arduino) attached to the Roomba. Picture will eventually be created during a gallery exhibition.<br>
 Commands are simplistic: right turn, left turn, forward, backward.
 
 Expected outcome: Since user cannot see the Roomba, the picture will be rather chaotic.<br>
@@ -14,7 +14,7 @@ Optional Phase 3: Add color; have multiple arms with different color sharpies at
 
 Objective: Prove design by committee, or large group collaboration, does or does not work. Prove “too many masters (or managers)” does or does deter progress.
 
-Optional: Through Google Analytics on web app, find possible patterns in commands coming from certain countries, devices, OS’s, etc.
+Optional: Through Google Analytics on web app, find possible patterns in commands coming from certain countries, devices, OS’s, etc.<br>
 
 Observations
 <ul>
