@@ -38,7 +38,7 @@ Optional Phase ??: Through Google Analytics on web app, find possible patterns i
  - Does lag, if any, create a significant problem in the design?
  - Does the Roomba get overloaded if too many commands are sent simultaneously?
  - How do you reset the Roomba when it hits a wall, so that it doesn’t interrupt the design?
- - Does the Raspberry Pi~~/Arduino~~ being on and constantly checking the web significantly affect the Roomba’s battery life?
+ - Does the Raspberry Pi being on and constantly checking the web significantly affect the Roomba’s battery life?
 
 
 ### Equipment
