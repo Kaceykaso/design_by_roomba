@@ -70,4 +70,4 @@ Previous or related works:
 
 ## License
 
-[the MIT License](LICENSE)
+[MIT License](LICENSE)
