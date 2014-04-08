@@ -63,7 +63,7 @@ Previous or related works:
 
 ## Authors
 
-**Kacey Coughlin **
+**Kacey Coughlin**
  - <http://www.kaceycoughlin.com>
  - <http://github.com/Kaceykaso>
 
