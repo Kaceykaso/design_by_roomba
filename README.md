@@ -1,4 +1,4 @@
-#<a href="">Design by Roomba</a>
+#<a href="http://kaceykaso.github.io/design_by_roomba/index.html">Design by Roomba</a>
 
 A crowdsourced picture drawn over a period of time by a Roomba Create; based on a series of commands submitted through a website, and received by a Raspberry Pi attached to the Roomba.
 
@@ -44,7 +44,7 @@ Optional Phase ??: Through Google Analytics on web app, find possible patterns i
 ### Equipment
 
  - <a href="http://store.irobot.com/product/index.jsp?productId=2586252">Roomba Create</a>
- - Website with basic form
+ - <a href="http://kaceykaso.github.io/design_by_roomba/index.html">Website with basic form</a>
  - <a href="http://www.raspberrypi.org/">Raspberry Pi</a> ~~or Arduino Yun~~
  - Gallery (Undergrad show or Best of ICAM?)
  - Large construction paper
