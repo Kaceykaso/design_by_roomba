@@ -16,13 +16,19 @@ A crowdsourced picture drawn over a period of time by a Roomba Create; based on 
 
 Design by Committee by Design
 
-Roomba draws crowdsourced picture over a period of time; based on a series of commands submitted through a web app, and received by a Raspberry Pi ~~(or Arduino)~~ attached to the Roomba. Picture will eventually be created during a gallery exhibition.<br>
+Roomba draws crowdsourced picture over a period of time; based on a series of commands submitted through a web app, and received by a Raspberry Pi ~~(or Arduino)~~ attached to the Roomba. Picture will be created during a gallery exhibition over an hour or two, with users at laptop/tablet stations, sending commands via the website.<br>
 Commands are simplistic: right turn, left turn, forward, backward.
 
-Expected outcome: Since user cannot see the Roomba, the picture will be rather chaotic.<br>
-Ideal outcome: There are at least some recognizable patterns in the picture.
+Expected outcome: ~~Since user cannot see the Roomba,~~ the picture will be rather chaotic, but patterns will emerge.<br>
+Ideal outcome: There are at least some recognizable patterns in the picture, if not a complete sketch.
 
 Objective: Prove design by committee, or large group collaboration, does or does not work. Prove “too many masters (or managers)” does or does deter progress.
+
+#### Challenges
+
+How do you handle command overload or button-mashing by the users? If commands are lost, or the queue gets to long, is it still intuitive that the user is in control? Or does the length of time between hitting the button and the command being carried out create a disconnect?
+
+Possible solution #1: Freeze/disable web form for 2 seconds (or length of time it takes Roomba to get command and carry it out), and free the form when the Roomba is ready again.
 
 ### Phases
 
