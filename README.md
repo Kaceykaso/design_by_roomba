@@ -6,6 +6,7 @@ A crowdsourced picture drawn over a period of time by a Roomba Create; based on 
 ##Table of Contents
 
  - [Concept](#concept)
+  - [Blog](blog)
  - [Research](#research)
  - [Authors](#authors)
  - [License](#license)
@@ -19,7 +20,7 @@ Design by Committee by Design
 Roomba draws crowdsourced picture over a period of time; based on a series of commands submitted through a web app, and received by a Raspberry Pi ~~(or Arduino)~~ attached to the Roomba. Picture will be created during a gallery exhibition over an hour or two, with users at laptop/tablet stations, sending commands via the website.<br>
 Commands are simplistic: right turn, left turn, forward, backward.
 
-Read the project's <a href="">blog</a> for more details and documentation.
+Read the [project's blog](blog) for more details and documentation.
 
 
 
