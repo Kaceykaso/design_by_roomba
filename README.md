@@ -28,9 +28,10 @@ Read the [project's blog](blog) for more details and documentation.
 
 Previous or related works:
  - <a href="http://www.instructables.com/id/Web-controlled-Twittering-Roomba/?ALLSTEPS">Web-controlled Twittering Roomba</a>
- - <a href="http://www.roborealm.com/tutorial/Fun_with_Roomba/slide090.php">Roomba Internet Control (outdated?)</a>
+ - ~~<a href="http://www.roborealm.com/tutorial/Fun_with_Roomba/slide090.php">Roomba Internet Control (outdated?)</a>~~
  - <a href="http://cfpm.org/~peter/connectingItUp.html">Roo Pi - controling a Roomba with a Raspberry Pi</a>
  - <https://code.google.com/p/webiopi/>
+ - <https://code.google.com/p/pyrobot/>
 
 
 
