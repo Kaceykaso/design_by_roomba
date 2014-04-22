@@ -35,28 +35,63 @@ body {
   text-shadow: 0 1px 3px rgba(0,0,0,.5);
   box-shadow: inset 0 0 100px rgba(0,0,0,.5);
 }
-
-
+.main {
+	margin-top: 10vh;
+}
+.middle {
+margin-top: 0;
+}
 /*
  * Graph
  */
-.graph-labels {
-	float: left;
+.graph {
+	 margin: 0 auto;
+	 display: inline-table;
+	 border-collapse: separate;
+	 border-spacing: 1em;
 }
 .graph-container {
-	clear: left;
+	height: 24vh;
 	margin-top: 3em;
-	padding-left: 0.25em;
-	transform: rotate(-90deg);
-	-webkit-transform: rotate(-90deg);
-	-moz-transform: rotate(-90deg);
-	-o-transform: rotate(-90deg);
-	-ms-transform: rotate(-90deg);
+	display: table-row;
 }
-.progress {
+.bar-container {
 	background: #3c3c3c;
 	box-shadow: inset 2px 2px 2px black;
+	display: table-cell;
+	height: inherit;
+	vertical-align: bottom;
+	width: 10%;
 }
-.progress-bar {
+.graph-labels {
+	background: transparent;
+	box-shadow: none;
+	padding: 0;
+}
+.graph-labels p {
+	margin: 0;
+	padding: 4vh 0 4vh;
+}
+.graph-labels p:first-child { padding: 0 0 8vh 0; }
+.graph-labels p:last-child { padding: 8vh 0 0 0; }
+.bar {
+	background: #7a7a7a;
 	border-bottom: 1px solid black;
+	height: 50%;
 }
+/*
+ * Feedback
+ */
+ .feedback {
+	 margin: 0;
+	 padding: 0;
+}
+.feedback i {
+	font-size: 15em;
+	line-height: 150%;
+	opacity: 0.5;
+	-webkit-opacity: 0.5;
+}
+/*
+ * Adjustments
+ */
