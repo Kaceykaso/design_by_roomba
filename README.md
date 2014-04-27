@@ -33,7 +33,6 @@ Previous or related works:
  - <http://www.instructables.com/id/OLPC-Telepresence/>
  - <https://code.google.com/p/webiopi/>
  - <https://code.google.com/p/pyrobot/>
- - 
  
 ### Diagrams
 
