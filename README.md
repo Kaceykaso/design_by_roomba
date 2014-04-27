@@ -37,9 +37,10 @@ Previous or related works:
  
 ### Diagrams
 
- - [Create 25-pin Cargo Bay Connector](blog/2014/april/19.md)
- - [RPi GPIO pinout](blog/2014/april/19.md)
- - [5V Regulator](blog/2014/april/27.md)
+ - [Create 25-pin Cargo Bay Connector](blog/2014/april/img/create_serial_pinout.png)
+ - [Create 7-pin Serial](blog/2014/april/img/create_7-pin_pinout.png)
+ - [RPi GPIO pinout](blog/2014/april/img/rpi_gpio_pin_out.png)
+ - [5V Regulator](blog/2014/april/img/5v_regulator.png)
 
 
 
