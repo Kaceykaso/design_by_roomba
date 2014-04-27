@@ -33,6 +33,13 @@ Previous or related works:
  - <http://www.instructables.com/id/OLPC-Telepresence/>
  - <https://code.google.com/p/webiopi/>
  - <https://code.google.com/p/pyrobot/>
+ - 
+ 
+### Diagrams
+
+ - [Create 25-pin Cargo Bay Connector](blog/2014/april/19.md)
+ - [RPi GPIO pinout](blog/2014/april/19.md)
+ - [5V Regulator](blog/2014/april/27.md)
 
 
 
