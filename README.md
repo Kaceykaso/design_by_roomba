@@ -31,8 +31,12 @@ Previous or related works:
  - ~~<a href="http://www.roborealm.com/tutorial/Fun_with_Roomba/slide090.php">Roomba Internet Control (outdated?)</a>~~
  - <a href="http://cfpm.org/~peter/connectingItUp.html">Roo Pi - controling a Roomba with a Raspberry Pi</a>
  - <http://www.instructables.com/id/OLPC-Telepresence/>
- - <https://code.google.com/p/webiopi/>
  - <https://code.google.com/p/pyrobot/>
+
+Tools, Libraries, Interesting things:
+ - ~~<https://code.google.com/p/webiopi/>~~
+ - <http://www.lighttpd.net/>
+ - <http://www.davidhunt.ie/add-a-9-pin-serial-port-to-your-raspberry-pi-in-10-minutes/>
  
 ### Diagrams
 
