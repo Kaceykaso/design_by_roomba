@@ -28,6 +28,8 @@ Read the [project's blog](blog) for more details and documentation.
 
 Previous or related works:
  - <a href="http://www.instructables.com/id/Web-controlled-Twittering-Roomba/?ALLSTEPS">Web-controlled Twittering Roomba</a>
+ - <https://www.youtube.com/watch?v=DzkG3q3HmtM>
+ - [RoombaSpiro](http://books.google.com/books?id=cKawNJgYcj8C&pg=PA184&lpg=PA184&dq=roombaspiro&source=bl&ots=uN2p2KuQX7&sig=xoPOQ_cSYg7DlCiJ8H4xPvp0s8w&hl=en&sa=X&ei=HOxfU4uAOcKtyATF9oHgBA&ved=0CC4Q6AEwAA#v=onepage&q=roombaspiro&f=false)
  - ~~<a href="http://www.roborealm.com/tutorial/Fun_with_Roomba/slide090.php">Roomba Internet Control (outdated?)</a>~~
  - <a href="http://cfpm.org/~peter/connectingItUp.html">Roo Pi - controling a Roomba with a Raspberry Pi</a>
  - <http://www.instructables.com/id/OLPC-Telepresence/>
