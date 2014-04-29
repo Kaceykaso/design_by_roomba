@@ -32,6 +32,7 @@ Previous or related works:
  - <a href="http://cfpm.org/~peter/connectingItUp.html">Roo Pi - controling a Roomba with a Raspberry Pi</a>
  - <http://www.instructables.com/id/OLPC-Telepresence/>
  - <https://code.google.com/p/pyrobot/>
+ - <http://pi.gate.ac.uk/pages/piroomba.html>
 
 Tools, Libraries, Interesting things:
  - ~~<https://code.google.com/p/webiopi/>~~
