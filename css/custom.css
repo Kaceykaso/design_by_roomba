@@ -77,8 +77,20 @@ margin-top: 0;
 .bar {
 	background: #7a7a7a;
 	border-bottom: 1px solid black;
-	height: 50%;
 }
+.bar-labels {
+	display: table-row-group;
+	width: 10%;
+	text-align: center;
+}
+.bar-labels i {
+	display: table-cell;
+}
+/* bar ranking */
+.first {background: #59eb5e;}
+.second {background: #20bec0;}
+.third {background: #e8b76a;}
+.fourth {background: #ee4b64;}
 /*
  * Feedback
  */
@@ -87,10 +99,28 @@ margin-top: 0;
 	 padding: 0;
 }
 .feedback i {
-	font-size: 15em;
-	line-height: 150%;
-	opacity: 0.5;
-	-webkit-opacity: 0.5;
+	display: block;
+	font-size: 5em;
+	opacity: 0.3;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
+	filter: alpha(opacity=30);
+	-webkit-opacity: 0.3;
+	-moz-opacity: 0.3;
+	-khtml-opacity: 0.3;
+}
+.feedback i:nth-of-type(odd) {
+	margin-right: 0.5em;
+}
+.feedback i:nth-of-type(even) {
+	margin-left: 0.5em;
+}
+.feedback i:last-of-type {
+	opacity: 1.0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	-webkit-opacity: 1.0;
+	-moz-opacity: 1.0;
+	-khtml-opacity: 1.0;
 }
 /*
  * Adjustments

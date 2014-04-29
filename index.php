@@ -1,16 +1,20 @@
 <?php
-// Check for clicks
+// Check clicks
 if (isset($_POST['btnForward'])) {
 	addForward();
+	addClicked("up");
 }
 if (isset($_POST['btnLeft'])) {
 	addLeft();
+	addClicked("left");
 }
 if (isset($_POST['btnRight'])) {
 	addRight();
+	addClicked("right");
 }
 if (isset($_POST['btnBackward'])) {
 	addBackward();
+	addClicked("down");
 }
 
 // Read back counts
@@ -25,6 +29,15 @@ function getRight() {
 }
 function getBackward() {
 	return (int)file_get_contents("backward.txt");
+}
+function getLastClicked($index) {
+	if (file_exists("clicked.txt")) {
+		$temp = file_get_contents("clicked.txt");
+		$temp2 = explode("\n", $temp);
+		$all_clicked = array_reverse($temp2);
+		$clicked = array_slice($all_clicked, 0, 6);
+		return $clicked[$index];
+	}
 }
 
 // Record counts
@@ -44,66 +57,29 @@ function addBackward() {
 	$backCount = getBackward() + 1;
 	file_put_contents("backward.txt", $backCount);
 }
+// Record all
+function addClicked($direction) {
+	$lastClicked = $direction."\n";
+	file_put_contents("clicked.txt", $lastClicked, FILE_APPEND | LOCK_EX);
+}
 
 // Reset all counts
 if (isset($_POST['reset'])) {
-	 $forwardCount = 0;
-	 $leftCount = 0;
-	 $rightCount = 0;
-	 $backCount = 0;
-	 file_put_contents("forward.txt", $forwardCount);
-	 file_put_contents("left.txt", $leftCount);
-	 file_put_contents("right.txt", $rightCount);
-	 file_put_contents("backward.txt", $backCount);
+	 file_put_contents("forward.txt", 0);
+	 file_put_contents("left.txt", 0);
+	 file_put_contents("right.txt", 0);
+	 file_put_contents("backward.txt", 0);
+	 file_put_contents("clicked.txt", "");
 }
 
-/*
-// Get button
-if ($_POST['btnForward']) {
-	$forward = $_POST['btnForward'];
-	$forwardCount++;
-	$totalCount++;
-}
-if ($_POST['btnLeft']) {
-	$left = $_POST['btnLeft'];
-	$leftCount++;
-	$totalCount++;
-}
-if ($_POST['btnRight']) {
-	$right = $_POST['btnRight'];
-	$rightCount++;
-	$totalCount++;
-}
-if ($_POST['btnBackward']) {
-	$back = $_POST['btnBackward'];
-	$backCount++;
-	$totalCount++;
-}
-
-// Get total percentage
-if ($totalCount > 0) {
-	$division = 100/$totalCount;
-	$totalPercent = $totalCount*$division;
-	// Forward
-	if ($forwardCount > 0) {
-		$forwardPercent = $forwardCount*$division;
-	}
-	// Left
-	if ($leftCount > 0) {
-		$leftPercent = $leftCount*$division;
-	}
-	// Right
-	if ($rightCount > 0) {
-		$rightPercent = $rightCount*$division;
-	}
-	// Back
-	if ($backCount > 0) {
-		$backPercent = $backCount*$division;
-	}
-} else {
-	$totalPercent = 0;
-}
-*/
+// Get max,min values
+$up = getForward();
+$down = getBackward();
+$left = getLeft();
+$right = getRight();
+$values = array($up,$down,$left,$right);
+$first = max($values);
+$last = min($values);
 
 ?>
 
@@ -185,29 +161,48 @@ if ($totalCount > 0) {
 		          		</div>
 		          		<!-- Right -->
 		          		<div class="bar-container commandRight">
-		          			<div class="bar" style="height: <?php echo getRight(); ?>%;">
+		          			<div class="bar
+		          			<?php if ($left == $first) {echo " first";}
+		          				else if ($left == $last) {echo " fourth";} ?>
+		          			" style="height: <?php echo getLeft(); ?>%;">
 		          			</div>
-		          			<?php echo getRight(); ?>
+		          			<?php echo getLeft(); ?>
 		          		</div>
 		          		<!-- Up -->
 		          		<div class="bar-container commandUp">
-		          			<div class="bar" style="height: <?php echo getForward(); ?>%;">
+		          			<div class="bar
+		          			<?php if ($up == $first) {echo " first";}
+		          				else if ($up == $last) {echo " fourth";} ?>
+		          			" style="height: <?php echo getForward(); ?>%;">
 		          			</div>
 		          			<?php echo getForward(); ?>
 		          		</div>
 		          		<!-- Down -->
 		          		<div class="bar-container commandDown">
-		          			<div class="bar" style="height: <?php echo getBackward(); ?>%;">
+		          			<div class="bar
+		          			<?php if ($down == $first) {echo " first";}
+		          				else if ($down == $last) {echo " fourth";} ?>
+		          			" style="height: <?php echo getBackward(); ?>%;">
 		          			</div>
 		          			<?php echo getBackward(); ?>
 		          		</div>
 		          		<!-- Left -->
 		          		<div class="bar-container commandLeft">
-		          			<div class="bar" style="height: <?php echo getLeft(); ?>%;">
+		          			<div class="bar
+		          			<?php if ($right == $first) {echo " first";}
+		          				else if ($right == $last) {echo " fourth";} ?>
+		          			" style="height: <?php echo getRight(); ?>%;">
 		          			</div>
-		          			<?php echo getLeft(); ?>
+		          			<?php echo getRight(); ?>
 		          		</div>
 		          	</div><!-- end .graph-container -->
+		          	<div class="bar-labels">
+		          			<i></i>
+		          			<i class="fa fa-arrow-left"></i>
+		          			<i class="fa fa-arrow-up"></i>
+		          			<i class="fa fa-arrow-down"></i>
+		          			<i class="fa fa-arrow-right"></i>
+		          		</div>
           		</div><!-- end .graph -->
           	</div><!-- end .col -->
           	
@@ -230,7 +225,11 @@ if ($totalCount > 0) {
 	          </div><!-- end .col -->
 	          
 	          <div class="col-xs-8 col-sm-12 col-md-4 feedback">
-		          <i class="fa fa-arrow-down fa-5x"></i>
+		          <i class="fa fa-arrow-<?php echo getLastClicked(5); ?> fa-5x"></i>
+		          <i class="fa fa-arrow-<?php echo getLastClicked(4); ?> fa-5x"></i>
+		          <i class="fa fa-arrow-<?php echo getLastClicked(3); ?> fa-5x"></i>
+		          <i class="fa fa-arrow-<?php echo getLastClicked(2); ?> fa-5x"></i>
+		          <i class="fa fa-arrow-<?php echo getLastClicked(1); ?> fa-5x"></i>
 	          </div>
 	          
           </div><!-- end .row -->
