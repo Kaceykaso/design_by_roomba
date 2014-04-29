@@ -36,6 +36,7 @@ Previous or related works:
 Tools, Libraries, Interesting things:
  - ~~<https://code.google.com/p/webiopi/>~~
  - <http://www.lighttpd.net/>
+ - <https://projects.drogon.net/raspberry-pi/wiringpi/serial-library/>
  - <http://www.davidhunt.ie/add-a-9-pin-serial-port-to-your-raspberry-pi-in-10-minutes/>
  
 ### Diagrams
