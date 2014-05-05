@@ -80,6 +80,7 @@ margin-top: 0;
 }
 .bar-labels {
 	display: table-row-group;
+	font-size: 28px;
 	width: 10%;
 	text-align: center;
 }
@@ -88,9 +89,8 @@ margin-top: 0;
 }
 /* bar ranking */
 .first {background: #59eb5e;}
-.second {background: #20bec0;}
-.third {background: #e8b76a;}
-.fourth {background: #ee4b64;}
+.last {background: #ee4b64;}
+.justClicked {color: #ff4b4b;}
 /*
  * Feedback
  */

@@ -163,7 +163,7 @@ $last = min($values);
 		          		<div class="bar-container commandRight">
 		          			<div class="bar
 		          			<?php if ($left == $first) {echo " first";}
-		          				else if ($left == $last) {echo " fourth";} ?>
+		          				else if ($left == $last) {echo " last";} ?>
 		          			" style="height: <?php echo getLeft(); ?>%;">
 		          			</div>
 		          			<?php echo getLeft(); ?>
@@ -172,7 +172,7 @@ $last = min($values);
 		          		<div class="bar-container commandUp">
 		          			<div class="bar
 		          			<?php if ($up == $first) {echo " first";}
-		          				else if ($up == $last) {echo " fourth";} ?>
+		          				else if ($up == $last) {echo " last";} ?>
 		          			" style="height: <?php echo getForward(); ?>%;">
 		          			</div>
 		          			<?php echo getForward(); ?>
@@ -181,7 +181,7 @@ $last = min($values);
 		          		<div class="bar-container commandDown">
 		          			<div class="bar
 		          			<?php if ($down == $first) {echo " first";}
-		          				else if ($down == $last) {echo " fourth";} ?>
+		          				else if ($down == $last) {echo " last";} ?>
 		          			" style="height: <?php echo getBackward(); ?>%;">
 		          			</div>
 		          			<?php echo getBackward(); ?>
@@ -190,7 +190,7 @@ $last = min($values);
 		          		<div class="bar-container commandLeft">
 		          			<div class="bar
 		          			<?php if ($right == $first) {echo " first";}
-		          				else if ($right == $last) {echo " fourth";} ?>
+		          				else if ($right == $last) {echo " last";} ?>
 		          			" style="height: <?php echo getRight(); ?>%;">
 		          			</div>
 		          			<?php echo getRight(); ?>
@@ -198,10 +198,10 @@ $last = min($values);
 		          	</div><!-- end .graph-container -->
 		          	<div class="bar-labels">
 		          			<i></i>
-		          			<i class="fa fa-arrow-left"></i>
-		          			<i class="fa fa-arrow-up"></i>
-		          			<i class="fa fa-arrow-down"></i>
-		          			<i class="fa fa-arrow-right"></i>
+		          			<i class="fa fa-arrow-left <?php if (getLastClicked(1) == "left") {echo "justClicked";}?>"></i>
+		          			<i class="fa fa-arrow-up <?php if (getLastClicked(1) == "up") {echo "justClicked";}?>"></i>
+		          			<i class="fa fa-arrow-down <?php if (getLastClicked(1) == "down") {echo "justClicked";}?>"></i>
+		          			<i class="fa fa-arrow-right <?php if (getLastClicked(1) == "right") {echo "justClicked";}?>"></i>
 		          		</div>
           		</div><!-- end .graph -->
           	</div><!-- end .col -->
@@ -211,25 +211,32 @@ $last = min($values);
 	            <br>
 	            <form role="form" action="" method="post">
 	            	<div class="form-group">
-	            		<button type="submit" name="btnForward" class="btn btn-success" value="forward"><i class="fa fa-arrow-up"></i></button>
+	            		<button type="submit" name="btnForward" class="btn btn-lg btn-success" value="forward"><i class="fa fa-arrow-up"></i></button>
 	            	</div>
 	            	<div class="form-group">
-	            		<button type="submit" name="btnLeft" class="btn btn-primary" value="left"><i class="fa fa-arrow-left"></i></button>
-	            		<button type="submit" name="btnRight" class="btn btn-info" value="right"><i class="fa fa-arrow-right"></i></button>
+	            		<button type="submit" name="btnLeft" class="btn btn-lg btn-primary" value="left"><i class="fa fa-arrow-left"></i></button>
+	            		<button type="submit" name="btnRight" class="btn btn-lg btn-info" value="right"><i class="fa fa-arrow-right"></i></button>
 	            	</div>
 	            	<div class="form-group">
-	            		<button type="submit" name="btnBackward" class="btn btn-warning" value="backward"><i class="fa fa-arrow-down"></i></button>
+	            		<button type="submit" name="btnBackward" class="btn btn-lg btn-warning" value="backward"><i class="fa fa-arrow-down"></i></button>
 	            	</div>
-	            	<button type="submit" name="reset" class="btn">Reset</button>
+	            	<button type="submit" name="reset" class="btn btn-lg">Reset</button>
 	            </form>
 	          </div><!-- end .col -->
 	          
 	          <div class="col-xs-8 col-sm-12 col-md-4 feedback">
+	          <?php if (getLastClicked(1) == "") { ?>
+		          <i class="fa fa-spinner fa-spin fa-5x"></i><br>
+		          <p class="lead text-center">
+		          Waiting for commands:
+	          	</p>
+	          <?Php } else { ?>
 		          <i class="fa fa-arrow-<?php echo getLastClicked(5); ?> fa-5x"></i>
 		          <i class="fa fa-arrow-<?php echo getLastClicked(4); ?> fa-5x"></i>
 		          <i class="fa fa-arrow-<?php echo getLastClicked(3); ?> fa-5x"></i>
 		          <i class="fa fa-arrow-<?php echo getLastClicked(2); ?> fa-5x"></i>
 		          <i class="fa fa-arrow-<?php echo getLastClicked(1); ?> fa-5x"></i>
+		      <?php } ?>
 	          </div>
 	          
           </div><!-- end .row -->
