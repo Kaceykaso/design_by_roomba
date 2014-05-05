@@ -41,6 +41,7 @@ Tools, Libraries, Interesting things:
  - <http://www.lighttpd.net/>
  - <https://projects.drogon.net/raspberry-pi/wiringpi/serial-library/>
  - <http://www.davidhunt.ie/add-a-9-pin-serial-port-to-your-raspberry-pi-in-10-minutes/>
+ - [Not terribly related, but cool anyways](http://sidigital.co/sid)
  
 ### Diagrams
 
