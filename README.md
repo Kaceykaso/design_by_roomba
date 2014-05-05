@@ -1,6 +1,6 @@
 #<a href="http://kaceykaso.github.io/design_by_roomba/index.html">Design by Roomba</a>
 
-A crowdsourced picture drawn over a period of time by a Roomba Create; based on a series of commands submitted through a website, and received by a Raspberry Pi attached to the Roomba.
+A crowdsourced picture drawn over a period of time by a iRobot Create (Roomba); based on a series of commands submitted through a website, and received by a Raspberry Pi attached to the Create.
 
 
 ##Table of Contents
@@ -17,7 +17,7 @@ A crowdsourced picture drawn over a period of time by a Roomba Create; based on 
 
 Design by Committee by Design
 
-Roomba draws crowdsourced picture over a period of time; based on a series of commands submitted through a web app, and received by a Raspberry Pi ~~(or Arduino)~~ attached to the Roomba. Picture will be created during a gallery exhibition over an hour or two, with users at laptop/tablet stations, sending commands via the website.<br>
+The Create draws crowdsourced picture over a period of time; based on a series of commands submitted through a web app, and received by a Raspberry Pi ~~(or Arduino)~~ attached to the Create. Picture will be created during a gallery exhibition over an hour or two, with users at laptop/tablet stations, sending commands via the website.<br>
 Commands are simplistic: right turn, left turn, forward, backward.
 
 Read the [project's blog](blog) for more details and documentation.
