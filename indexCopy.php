@@ -107,6 +107,7 @@ $last = min($values);
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+  
   </head>
 
   <body>
@@ -161,66 +162,55 @@ $last = min($values);
 		          		</div>
 		          		<!-- Right -->
 		          		<div class="bar-container commandRight">
-		          			<div class="bar
-		          			<?php if ($left == $first) {echo " first";}
-		          				else if ($left == $last) {echo " last";} ?>
-		          			" style="height: <?php echo getLeft(); ?>%;">
+		          			<div class="bar">
 		          			</div>
-		          			<?php echo getLeft(); ?>
+		          			<span>0</span>
 		          		</div>
 		          		<!-- Up -->
 		          		<div class="bar-container commandUp">
-		          			<div class="bar
-		          			<?php if ($up == $first) {echo " first";}
-		          				else if ($up == $last) {echo " last";} ?>
-		          			" style="height: <?php echo getForward(); ?>%;">
+		          			<div class="bar">
 		          			</div>
-		          			<?php echo getForward(); ?>
+		          			<span>0</span>
 		          		</div>
 		          		<!-- Down -->
 		          		<div class="bar-container commandDown">
-		          			<div class="bar
-		          			<?php if ($down == $first) {echo " first";}
-		          				else if ($down == $last) {echo " last";} ?>
-		          			" style="height: <?php echo getBackward(); ?>%;">
+		          			<div class="bar">
 		          			</div>
-		          			<?php echo getBackward(); ?>
+		          			<span>0</span>
 		          		</div>
 		          		<!-- Left -->
 		          		<div class="bar-container commandLeft">
-		          			<div class="bar
-		          			<?php if ($right == $first) {echo " first";}
-		          				else if ($right == $last) {echo " last";} ?>
-		          			" style="height: <?php echo getRight(); ?>%;">
+		          			<div class="bar">
 		          			</div>
-		          			<?php echo getRight(); ?>
+		          			<span>0</span>
 		          		</div>
 		          	</div><!-- end .graph-container -->
 		          	<div class="bar-labels">
 		          			<i></i>
-		          			<i class="fa fa-arrow-left <?php if (getLastClicked(1) == "left") {echo "justClicked";}?>"></i>
-		          			<i class="fa fa-arrow-up <?php if (getLastClicked(1) == "up") {echo "justClicked";}?>"></i>
-		          			<i class="fa fa-arrow-down <?php if (getLastClicked(1) == "down") {echo "justClicked";}?>"></i>
-		          			<i class="fa fa-arrow-right <?php if (getLastClicked(1) == "right") {echo "justClicked";}?>"></i>
+		          			<i class="fa fa-arrow-left"></i>
+		          			<i class="fa fa-arrow-up"></i>
+		          			<i class="fa fa-arrow-down"></i>
+		          			<i class="fa fa-arrow-right"></i>
 		          		</div>
           		</div><!-- end .graph -->
           	</div><!-- end .col -->
           	
 	          <div class="col-xs-8 col-sm-6 col-md-4 middle">
-	            <h3 class="heading">Which way<br><small>my master?</small></h3>
+	           
+	            	<h3 class="heading"></h3>	
 	            <br>
 	            <form role="form" action="" method="post">
 	            	<div class="form-group">
-	            		<button type="submit" name="btnForward" class="btn btn-lg btn-success" value="forward"><i class="fa fa-arrow-up"></i></button>
+	            		<button type="button" name="btnForward" id="up" class="btn btn-lg btn-success" value="forward"><i class="fa fa-arrow-up"></i></button>
 	            	</div>
 	            	<div class="form-group">
-	            		<button type="submit" name="btnLeft" class="btn btn-lg btn-primary" value="left"><i class="fa fa-arrow-left"></i></button>
-	            		<button type="submit" name="btnRight" class="btn btn-lg btn-info" value="right"><i class="fa fa-arrow-right"></i></button>
+	            		<button type="button" name="btnLeft" id="left" class="btn btn-lg btn-primary" value="left"><i class="fa fa-arrow-left"></i></button>
+	            		<button type="button" name="btnRight" id="right" class="btn btn-lg btn-info" value="right"><i class="fa fa-arrow-right"></i></button>
 	            	</div>
 	            	<div class="form-group">
-	            		<button type="submit" name="btnBackward" class="btn btn-lg btn-warning" value="backward"><i class="fa fa-arrow-down"></i></button>
+	            		<button type="button" name="btnBackward" id="down" class="btn btn-lg btn-warning" value="backward"><i class="fa fa-arrow-down"></i></button>
 	            	</div>
-	            	<button type="submit" name="reset" class="btn btn-lg"><i class="fa fa-refresh"></i>  Reset</button>
+	            	<button type="submit" name="reset" id="reset" class="btn btn-lg"><i class="fa fa-refresh"></i>  Reset</button>
 	            </form>
 	          </div><!-- end .col -->
 	          
@@ -252,6 +242,86 @@ $last = min($values);
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+var sec = 30;
+var minute = 1;
+$("#minute").text(minute);
+$("#second").text(sec);
+function countdown(){
+		  if (minute > 0) {
+		    if (sec > 0) {
+		      sec--;
+		      if (sec <= 10) {
+		        $('#second').text('0'+sec);
+		      } else {
+		        $('#second').text(sec);
+		      }
+		      
+		    } else {
+		      minute--;
+		      $('#minute').text(minute);
+		      sec = 59;
+		    }
+		  } else if (minute == 0) {
+		    $('#minute').fadeOut(500);
+		    if (sec > 0 ) {
+		      sec--;
+		      if (sec <= 10) {
+		        $('#second').text('0'+sec);
+		        $('#second').fadeOut(300);
+		        $('#second').fadeIn(300);
+		      } else {
+		        $('#second').text(sec);
+		      }
+		    } else if (sec == 0) {
+		      $('#countdown #second').fadeOut(500);
+		      $('#countdown').fadeOut(500);
+		      $('#reset').submit();
+		    } //seconds
+		  } //minutes
+		}
+
+var goUp = 0, 
+goDown = 0, 
+goLeft = 0, 
+goRight = 0;
+$('button').on('click', function(event) {
+	if (event.currentTarget.id == "up") {
+		goUp++;
+		$('.commandUp > .bar').height(goUp);
+		$('.commandUp > span').text(goUp);
+	} else if (event.currentTarget.id == "down") {
+		goDown++;
+		$('.commandDown > .bar').height(goDown);
+		$('.commandDown > span').text(goDown);
+	} else if (event.currentTarget.id == "left") {
+		goLeft++;
+		$('.commandLeft > .bar').height(goLeft);
+		$('.commandLeft > span').text(goLeft);
+	} else if (event.currentTarget.id == "right") {
+		goRight++;
+		$('.commandRight > .bar').height(goRight);
+		$('.commandRight > span').text(goRight);
+	}
+	$(this).one('click', function () {
+		setInterval('countdown()',2000);
+		$('.middle h3').html('<span id="countdown"><span id="minute"></span>:<span id="second"></span></span>');
+	});
+	
+	
+});
+
+// Find max, min value
+	var countArray = [goUp,goDown,goLeft,goRight];
+	var maxValue = Math.max.apply(Math, countArray);
+	if (maxValue == goUp) { $('.first').removeClass('first'); $('.commandUp > .bar').addClass('first');}
+
+$(document).ready(function () {
+		$('.middle h3').html('Which way<br><small>my master?</small>');
+});
+
+</script>
+</script>
   </body>
 </html>
 
