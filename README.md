@@ -35,6 +35,7 @@ Previous or related works:
  - <http://www.instructables.com/id/OLPC-Telepresence/>
  - <https://code.google.com/p/pyrobot/>
  - <http://pi.gate.ac.uk/pages/piroomba.html>
+ - [Yet another Roomba+RPi+Webcam project](https://github.com/mirobotclub/RoombaPi)
 
 Tools, Libraries, Interesting things:
  - ~~<https://code.google.com/p/webiopi/>~~
