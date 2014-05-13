@@ -25,9 +25,9 @@ robot.playSong( [(60,8),(64,8),(67,8),(72,8)] ); # C chord
 robot.move(6); # Move forwards
 
 # Jiggle
-robot.turn(45,10); # 45 degrees counterclockwise, 10 degrees/s
-robot.turn(-90,10); # 90 degrees clockwise, 10 degrees/s
-robot.turn(45,10);
+robot.turn(45,45); # 45 degrees counterclockwise, 10 degrees/s
+robot.turn(-90,45); # 90 degrees clockwise, 10 degrees/s
+robot.turn(45,45);
 
 robot.move(-6); # Move backwards
 
