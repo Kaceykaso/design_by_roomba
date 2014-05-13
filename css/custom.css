@@ -59,7 +59,7 @@ margin-top: 0;
 	background: #3c3c3c;
 	box-shadow: inset 2px 2px 2px black;
 	display: table-cell;
-	height: inherit;
+	height: 100%;
 	vertical-align: bottom;
 	width: 10%;
 }

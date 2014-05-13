@@ -173,7 +173,7 @@ $last = min($values);
 		          			<div class="bar
 		          			<?php if ($up == $first) {echo " first";}
 		          				else if ($up == $last) {echo " last";} ?>
-		          			" style="height: <?php echo getForward(); ?>%;">
+		          			" style="height: 10%;">
 		          			</div>
 		          			<?php echo getForward(); ?>
 		          		</div>
