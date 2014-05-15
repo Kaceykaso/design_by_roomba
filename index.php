@@ -126,20 +126,10 @@ $last = min($values);
 			    <!-- Everything else -->
 			    <div class="collapse navbar-collapse">
 			      <ul class="nav navbar-nav pull-right">
-			        <li class="active"><a href="about.html">About</a></li>
+			      	<li><a href="rossbot.php">Bob Ross Mode</a></li>
+			        <li><a href="about.html">About</a></li>
 			        <li><a href="https://github.com/Kaceykaso/design_by_roomba/tree/gh-pages">Fork Me!</a></li>
-			        <!--<li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-			          <ul class="dropdown-menu">
-			            <li><a href="#">Action</a></li>
-			            <li><a href="#">Another action</a></li>
-			            <li><a href="#">Something else here</a></li>
-			            <li class="divider"></li>
-			            <li><a href="#">Separated link</a></li>
-			            <li class="divider"></li>
-			            <li><a href="#">One more separated link</a></li>
-			          </ul>
-			        </li>-->
+			       
 			      </ul>
 			      
 			    </div><!-- end .collapse -->
@@ -173,7 +163,7 @@ $last = min($values);
 		          			<div class="bar
 		          			<?php if ($up == $first) {echo " first";}
 		          				else if ($up == $last) {echo " last";} ?>
-		          			" style="height: 10%;">
+		          			" style="height: <?php echo getForward(); ?>%;">
 		          			</div>
 		          			<?php echo getForward(); ?>
 		          		</div>
@@ -252,6 +242,7 @@ $last = min($values);
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/prefixfree.min.js"></script>
   </body>
 </html>
 
