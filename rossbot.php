@@ -1,7 +1,27 @@
 <?php
+// Simple shapes to draw
+$keywords = array("circle","square","triangle","line","zigzag","spiral","happy little tree");
+
 // Check for user input
 if (isset($_POST["chat"])) {
+	// Write convo
+	$thisChat = $_POST["chat"];
+	addText($thisChat);
+	// Make everything lowercase
+	$thisChat = strtolower($thisChat);
 	// Parse user input
+	$temp = explode(" ", $thisChat);
+	// Strip out weird characters
+	$temp = preg_replace('/[.,]+/', '', $temp);
+	// Search for keywords
+	$parsed = array();
+	foreach $word in $temp {
+		if (in_array($word, $keywords)) {
+			$parsed[] = $word;
+		}
+	}
+	$bobChat = "";
+	
 }
 
 
@@ -18,7 +38,11 @@ if (isset($_POST["chat"])) {
 
 // If its been a while, chat a bit, say something Bob Ross-ish
 
-
+// Conversation
+function addText($text) {
+	$lastLine = $text."\n";
+	file_put_contents("conversation.txt", $lastLine, FILE_APPEND | LOCK_EX);
+}
 ?>
 
 <!DOCTYPE html>

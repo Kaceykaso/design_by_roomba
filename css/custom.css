@@ -134,7 +134,7 @@ body {
 	width: inherit;
 }
 .picture-container .bob {
-	background: url('../img/bob_8bit.png') left bottom no-repeat scroll;
+	background: url('../img/bob_8bit.svg') left bottom no-repeat scroll;
 	height: 100%;
 	left: 0;
 	position: absolute;
