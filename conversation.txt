@@ -1,3 +1,4 @@
-triangle
-happy little tree
-poop
+<div class="user"><p>happy little tree</p></div><div class="clear"></div>
+<div class="bob"><p>Oh, I should draw a tree?</p></div><div class="clear"></div>
+<div class="user"><p>Yes</p></div><div class="clear"></div>
+<div class="bob"><p>Alrighty then.</p></div><div class="clear"></div><div class="bob"><p>We don't make mistakes, we just have happy accidents.</p></div><div class="clear"></div>

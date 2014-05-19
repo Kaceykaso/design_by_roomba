@@ -1,12 +1,18 @@
 <?php
+date_default_timezone_set('America/Los_Angeles');
+$file = "conversation.txt";
 // Simple shapes to draw
-$keywords = array("circle","square","triangle","line","zigzag","spiral","happy little tree");
+$keywords = array("circle","square","triangle","line","zigzag","spiral","tree");
+// Bob Ross quotes
+$quotes = array("You know me, I gotta put in a big tree.","Here's your bravery test!","Any time ya learn, ya gain.","Haha, and just beat the devil out of it.","Clouds are very, very free.","Happy as we can be.","I like to beat the brush.","Talk to the tree, make friends with it.","We don't make mistakes, we just have happy accidents.","You can do anything you want to do. This is your world.","We want happy paintings. Happy paintings. If you want sad things, watch the news.");
+$quoteCount = count($quotes);
 
 // Check for user input
 if (isset($_POST["chat"])) {
 	// Write convo
 	$thisChat = $_POST["chat"];
-	addText($thisChat);
+	$userChat = "<div class=\"user\"><p>".$_POST["chat"]."</p></div><div class=\"clear\"></div>";
+	addText($userChat);
 	// Make everything lowercase
 	$thisChat = strtolower($thisChat);
 	// Parse user input
@@ -15,13 +21,26 @@ if (isset($_POST["chat"])) {
 	$temp = preg_replace('/[.,]+/', '', $temp);
 	// Search for keywords
 	$parsed = array();
-	foreach $word in $temp {
+	foreach ($temp as $word) {
 		if (in_array($word, $keywords)) {
 			$parsed[] = $word;
 		}
 	}
-	$bobChat = "";
-	
+	if (count($parsed) > 0) {
+		$bobChat = "<div class=\"bob\"><p>Oh, I should draw a ".$parsed[0]."?</p></div><div class=\"clear\"></div>";
+	} else {
+		if (in_array("yes", $temp)) {
+			$bobChat = "<div class=\"bob\"><p>Alrighty then.</p></div><div class=\"clear\"></div>";
+			$thisQuote = rand(0, $quoteCount);
+			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
+		} else if (in_array("no", $temp)) {
+			$bobChat = "<div class=\"bob\"><p>Oh ok, then what?</p></div><div class=\"clear\"></div>";
+		} else {
+			$bobChat = "<div class=\"bob\"><p>I can't draw that. How about a happy little tree?</p></div><div class=\"clear\"></div>";
+		}
+	}
+	addText($bobChat);
+	$lastTime = date('h:i:s A');
 }
 
 
@@ -36,8 +55,19 @@ if (isset($_POST["chat"])) {
 // Give feedback on piece as a whole so far
 
 
-// If its been a while, chat a bit, say something Bob Ross-ish
 
+// If its been a while, chat a bit, say something Bob Ross-ish
+function checkTime() {
+	$timeStamp = date('h:i:s A');
+	return $timeStamp;
+}
+
+// Reset
+if ($_POST['reset']) {
+	if (file_exists($file)) {
+		unlink($file);
+	}
+}
 // Conversation
 function addText($text) {
 	$lastLine = $text."\n";
@@ -69,6 +99,17 @@ function addText($text) {
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+	function saveScrollPositions(theForm) {
+	
+		if(theForm) {
+		var scrolly = typeof window.pageYOffset != 'undefined' ? window.pageYOffset : document.documentElement.scrollTop;
+		var scrollx = typeof window.pageXOffset != 'undefined' ? window.pageXOffset : document.documentElement.scrollLeft;
+		theForm.scrollx.value = scrollx;
+		theForm.scrolly.value = scrolly;
+		}
+	}
+	</script>
   </head>
 
   <body>
@@ -109,29 +150,26 @@ function addText($text) {
           
           <div class="row">
 	      	<div class="chat-container">
-	          	<div class="chat-transcript">
-	          			
-	          			<div class="bob">
-	          				<p>
-	          					Welcome, fellow artist!
-	          				</p>
-	          			</div>
-	          			<div class="clear"></div>
-	          			<div class="user">
-	          				<p>
-	          					Draw a happy little tree.
-	          				</p>
-	          			</div>
-	          			<div class="clear"></div>
-	          			<div class="bob">
-	          				<p>
-	          					A happy little tree? Alrighty.
-	          				</p>
-	          			</div>
-	          			<div class="clear"></div>
+	          	<div class="chat-transcript" id="chat-transcript">
+	          			<?php 
+				        	if (file_exists($file)) {
+					        	$read = file_get_contents($file);
+								$chats = explode("\n", $read);
+								foreach ($chats as $talk) {
+									echo $talk;
+								}
+				        	} else {
+								echo "<div class=\"bob\"><p>Hi there! I'm glad to see you today! What shall we make today?</p></div><div class=\"clear\"></div>";
+								$thisQuote = rand(0, $quoteCount);
+								echo "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
+							}
+				         ?>
 	          	</div>
-	          		<form method="post" action="" role="form">
+	          		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" role="form" name="form" onsubmit="return saveScrollPositions(this);">
+						<input type="hidden" name="scrollx" id="scrollx" value="0" />
+						<input type="hidden" name="scrolly" id="scrolly" value="0" />
 	          			<input type="text" class="chat" name="chat" placeholder="Draw a circle!" value="">
+	          			<input type="submit" name="reset" class="btn btn-default btn-xs" value="Reset">
 	          		</form>
 	         </div>
          </div>
@@ -142,7 +180,7 @@ function addText($text) {
 	          </div>
           </div>
 
-          <footer class="navbar-fixed-bottom">
+          <footer class="">
               <p>A <a href="http://www.kaceycoughlin.com/">Kacey Coughlin</a> joint.</p>
           </footer>
 
@@ -181,6 +219,22 @@ function addText($text) {
 	    }
 	});
     </script>
+    <?php
+	$scrollx = 0;
+	$scrolly = 0;
+	if(!empty($_REQUEST['scrollx'])) {
+		$scrollx = $_REQUEST['scrollx'];
+	}
+	
+	if(!empty($_REQUEST['scrolly'])) {
+		$scrolly = $_REQUEST['scrolly'];
+	}
+	?>
+	<script type="text/javascript">
+	window.scrollTo(<?php echo "$scrollx" ?>, <?php echo "$scrolly" ?>);
+	var objDiv = document.getElementById("chat-transcript");
+	objDiv.scrollTop = objDiv.scrollHeight;
+	</script>
   </body>
 </html>
 
