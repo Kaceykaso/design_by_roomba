@@ -172,6 +172,7 @@ function addText($text) {
 						<input type="hidden" name="scrollx" id="scrollx" value="0" />
 						<input type="hidden" name="scrolly" id="scrolly" value="0" />
 	          			<input type="text" class="chat" name="chat" placeholder="Draw a circle!" value="">
+	          			<input type="submit" name="submit" class="btn btn-primary btn-xs" value="Go!">
 	          			<input type="submit" name="reset" class="btn btn-default btn-xs" value="Reset">
 	          		</form>
 	         </div>
