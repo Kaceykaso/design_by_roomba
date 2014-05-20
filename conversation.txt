@@ -1,0 +1,2 @@
+<div class="user"><p>Play the Imperial March!</p></div><div class="clear"></div>
+<div class="bob"><p>Lord Vader has no interest in your puny demands.</p></div><div class="clear"></div>
