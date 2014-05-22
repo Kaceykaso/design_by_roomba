@@ -1,8 +1,6 @@
-"""
-Simple test script that runs through a few of the methods from the Create API
-found at:
-http://www.cs.gmu.edu/~zduric/cs101/pmwiki.php/Main/APITutorial
-"""
+# Simple test script that runs through a few of the methods from the Create API
+# found at:
+# http://www.cs.gmu.edu/~zduric/cs101/pmwiki.php/Main/APITutorial
 
 import serial
 import create
@@ -10,10 +8,9 @@ import create
 # Create the Create!
 robot = create.Create("/dev/ttyUSB0")
 
-"""
-Safe Mode does not allow Create to move why plugged in, run off cliffs, and stops and adjusts when bumped.
-Full Mode ignores all that
-"""
+# Safe Mode does not allow Create to move why plugged in, run off cliffs, and stops and adjusts when bumped.
+# Full Mode ignores all that
+
 #robot.toSafeMode()
 robot.toFullMode()
 
@@ -25,10 +22,9 @@ robot.stop()
 # Play a C chord
 robot.playSong( [(60,8),(64,8),(67,8),(72.)] )
 
-"""
-Get current position of Create (x,y,theta),
-where theta is the angle the Create is facing.
-"""
+# Get current position of Create (x,y,theta),
+# where theta is the angle the Create is facing.
+
 pose = robot.getPose();
 print "My X is %s" % pose[0]
 print "My Y is %s" % pose[1]
