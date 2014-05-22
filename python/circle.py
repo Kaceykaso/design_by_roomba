@@ -1,6 +1,6 @@
-# Square script
-# Executed when asked to draw a square by the user
-# Draws a 12 inch square
+# Circle script
+# Executed when asked to draw a circle by the user
+# Draws a 12 inch circle
 
 import serial
 import create
@@ -21,14 +21,10 @@ with open('positions.txt','a') as f:
   f.write(line)
 f.closed
 
-# Draw square
-robot.move(305, 30) #12" equivilent in millimeters, rounded up, 30cm/s
-robot.turn(-90, 60) # 90 degrees clockwise, 60 degrees/s
-robot.move(305, 30)
-robot.turn(-90, 60)
-robot.move(305, 30)
-robot.turn(-90, 60)
-robot.move(305, 30)
+# Draw circle
+# Circumference of circle with diameter of 12" = 37.5" (95.25cm)
+# Degrees clockwise to move: 6.283 (radians) x r = 37.698 degrees
+robot.go(95.25,-37.7)
 
 # Record position now, at end of drawing
 new_pose = robot.getPose()
