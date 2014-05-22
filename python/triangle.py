@@ -2,8 +2,8 @@
 # Executed when asked to draw a triangle by the user
 # Draws a 12 x 12 x 12 inch equilateral triangle
 
-import create
 import serial
+import create
 from time import strftime
 
 # Create robot
