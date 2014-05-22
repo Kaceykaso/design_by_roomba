@@ -22,8 +22,8 @@ with open('positions.txt','a') as f:
 f.closed
 
 # Draw triangle
-robot.move(305, 30) #12" equivilent in millimeters, rounded up
-robot.turn(-120, 60)
+robot.move(305, 30) # 12" equivilent in millimeters, rounded up, 30cm/s
+robot.turn(-120, 60) # 120 degrees clockwise, 60 degrees/s
 robot.move(305, 30)
 robot.turn(-120, 60)
 robot.move(305, 30)
