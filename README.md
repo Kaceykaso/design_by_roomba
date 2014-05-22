@@ -27,6 +27,7 @@ Read the [project's blog](blog) for more details and documentation.
 ## Research
 
 Previous or related works:
+ - [Harold Cohen's AARON](http://www.viewingspace.com/genetics_culture/pages_genetics_culture/gc_w05/cohen_h.htm)
  - <a href="http://www.instructables.com/id/Web-controlled-Twittering-Roomba/?ALLSTEPS">Web-controlled Twittering Roomba</a>
  - <https://www.youtube.com/watch?v=DzkG3q3HmtM>
  - [RoombaSpiro](http://books.google.com/books?id=cKawNJgYcj8C&pg=PA184&lpg=PA184&dq=roombaspiro&source=bl&ots=uN2p2KuQX7&sig=xoPOQ_cSYg7DlCiJ8H4xPvp0s8w&hl=en&sa=X&ei=HOxfU4uAOcKtyATF9oHgBA&ved=0CC4Q6AEwAA#v=onepage&q=roombaspiro&f=false)
