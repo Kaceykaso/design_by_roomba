@@ -1,30 +1,21 @@
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
+# Beginning of concept for Command Mode
+# Abandoned in favor of Bob Ross Mode
 
-#import serial
-#import create
-#import time
+import serial
+import create
+import time
 
 # Create robot
 
 # Set to Full Mode
 
 # Get robot's current position, write to file
-#firstPose = robot.getPose()
+firstPose = robot.getPose()
 
 # Read in command from index.php
 with open('../clicked.txt','r') as f:
-	#for line in f:
-		#print line
+	for line in f:
+		print line
 	file_size = f.tell()
 	f.seek(max(file_size - 2*1024, 0))
 
