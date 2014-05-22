@@ -1,3 +1,6 @@
+# Another simple test script, with a little more planning
+# Longer song, moves forwards and backwards, turns in place
+
 import serial
 import create
 
