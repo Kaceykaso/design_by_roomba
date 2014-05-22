@@ -1,3 +1,9 @@
+"""
+Simple test script that runs through a few of the methods from the Create API
+found at:
+http://www.cs.gmu.edu/~zduric/cs101/pmwiki.php/Main/APITutorial
+"""
+
 import serial
 import create
 
