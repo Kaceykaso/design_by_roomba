@@ -1,6 +1,6 @@
-# Triangle script
-# Executed when asked to draw a triangle by the user
-# Draws a 12 x 12 x 12 inch equilateral triangle
+# Square script
+# Executed when asked to draw a square by the user
+# Draws a 12 inch square
 
 import serial
 import create
@@ -21,11 +21,13 @@ with open('positions.txt','a') as f:
   f.write(line)
 f.closed
 
-# Draw triangle
-robot.move(305, 30) #12" equivilent in millimeters, rounded up
-robot.turn(-120, 60)
+# Draw square
+robot.move(305, 30) #12" equivilent in millimeters, rounded up, 30cm/s
+robot.turn(-90, 60) # 90 degrees clockwise, 60 degrees/s
 robot.move(305, 30)
-robot.turn(-120, 60)
+robot.turn(-90, 60)
+robot.move(305, 30)
+robot.turn(-90, 60)
 robot.move(305, 30)
 
 # Record position now, at end of drawing
