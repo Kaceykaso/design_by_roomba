@@ -38,6 +38,9 @@ if (isset($_POST["chat"])) {
 		} else if (in_array("imperial", $temp)) {
 			$bobChat = "<div class=\"bob\"><p>Lord Vader has no interest in your puny demands.</p></div><div class=\"clear\"></div>";
 			system('python python/imperial_march.py');
+		} else if (in_array("test", $temp)) {
+			$bobChat = "<div class=\"bob\"><p>Running test script.</p></div><div class=\"clear\"></div>";
+			system('python python/test2.py');
 		} else {
 			$bobChat = "<div class=\"bob\"><p>I can't draw that. How about a happy little tree?</p></div><div class=\"clear\"></div>";
 		}
