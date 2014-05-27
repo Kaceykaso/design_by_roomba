@@ -40,7 +40,7 @@ if (isset($_POST["chat"])) {
 			system('python python/imperial_march.py');
 		} else if (in_array("test", $temp)) {
 			$bobChat = "<div class=\"bob\"><p>Running test script.</p></div><div class=\"clear\"></div>";
-			system('python python/test2.py');
+			system('python /home/pi/design_roomba/python/test2.py');
 		} else {
 			$bobChat = "<div class=\"bob\"><p>I can't draw that. How about a happy little tree?</p></div><div class=\"clear\"></div>";
 		}
