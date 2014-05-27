@@ -39,7 +39,8 @@ if (isset($_POST["chat"])) {
 			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
 			}*/
 			$bobChat = "<div class=\"bob\"><p>Alrighty then, let's make a ".$parsed[0]."</p></div><div class=\"clear\"></div>";
-			system('python python/'.$parsed[0].''.py');
+			$command = "python python/".$parsed[0].".py";
+			system($command);
 			$thisQuote = rand(0, $quoteCount);
 			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
 			
@@ -90,7 +91,7 @@ function addText($text) {
 	file_put_contents("conversation.txt", $lastLine, FILE_APPEND | LOCK_EX);
 }
 // Get last parsed command
-function getLastKeyword() {
+/*function getLastKeyword() {
 	if (file_exists("conversation.txt")) {
 		$temp = file_get_contents("conversation.txt");
 		$temp2 = explode("\n", $temp);
@@ -108,7 +109,7 @@ function getLastKeyword() {
 	} else {
 		return null;
 	}
-}
+}*/
 ?>
 
 <!DOCTYPE html>
