@@ -2,7 +2,7 @@
 date_default_timezone_set('America/Los_Angeles');
 $file = "conversation.txt";
 // Simple shapes to draw
-$keywords = array("circle","square","triangle","line","zigzag","spiral","tree");
+$keywords = array("circle","square","triangle","line","zigzag","spiral","tree", "cloud");
 // Bob Ross quotes
 $quotes = array("You know me, I gotta put in a big tree.","Here's your bravery test!","Any time ya learn, ya gain.","Haha, and just beat the devil out of it.","Clouds are very, very free.","Happy as we can be.","I like to beat the brush.","Talk to the tree, make friends with it.","We don't make mistakes, we just have happy accidents.","You can do anything you want to do. This is your world.","We want happy paintings. Happy paintings. If you want sad things, watch the news.");
 $quoteCount = count($quotes);
@@ -40,7 +40,7 @@ if (isset($_POST["chat"])) {
 			system('python python/imperial_march.py');
 		} else if (in_array("test", $temp)) {
 			$bobChat = "<div class=\"bob\"><p>Running test script.</p></div><div class=\"clear\"></div>";
-			system('python /home/pi/design_roomba/python/test2.py');
+			system('python python/test2.py');
 		} else {
 			$bobChat = "<div class=\"bob\"><p>I can't draw that. How about a happy little tree?</p></div><div class=\"clear\"></div>";
 		}
