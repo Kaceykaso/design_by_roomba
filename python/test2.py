@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 # Another simple test script, with a little more planning
 # Longer song, moves forwards and backwards, turns in place
 
