@@ -27,7 +27,12 @@ if (isset($_POST["chat"])) {
 		}
 	}
 	if (count($parsed) > 0) {
-		$bobChat = "<div class=\"bob\"><p>Oh, I should draw a ".$parsed[0]."?</p></div><div class=\"clear\"></div>";
+		//$bobChat = "<div class=\"bob\"><p>Oh, I should draw a ".$parsed[0]."?</p></div><div class=\"clear\"></div>";
+		$bobChat = "<div class=\"bob\"><p>Alrighty then, let's make a ".$parsed[0]."</p></div><div class=\"clear\"></div>";
+			$command = "python python/".$parsed[0].".py";
+			system($command);
+			$thisQuote = rand(0, $quoteCount);
+			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
 	} else {
 		if (in_array("yes", $temp)) {
 			/*$lastParsed = (string)getLastKeyword();
@@ -38,11 +43,6 @@ if (isset($_POST["chat"])) {
 			$thisQuote = rand(0, $quoteCount);
 			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
 			}*/
-			$bobChat = "<div class=\"bob\"><p>Alrighty then, let's make a ".$parsed[0]."</p></div><div class=\"clear\"></div>";
-			$command = "python python/".$parsed[0].".py";
-			system($command);
-			$thisQuote = rand(0, $quoteCount);
-			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
 			
 		} else if (in_array("no", $temp)) {
 			$bobChat = "<div class=\"bob\"><p>Oh ok, then what?</p></div><div class=\"clear\"></div>";
