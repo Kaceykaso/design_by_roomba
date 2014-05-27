@@ -2,7 +2,7 @@
 date_default_timezone_set('America/Los_Angeles');
 $file = "conversation.txt";
 // Simple shapes to draw
-$keywords = array("circle","square","triangle","line","zigzag","spiral","tree", "cloud");
+$keywords = array("circle","square","triangle");
 // Bob Ross quotes
 $quotes = array("You know me, I gotta put in a big tree.","Here's your bravery test!","Any time ya learn, ya gain.","Haha, and just beat the devil out of it.","Clouds are very, very free.","Happy as we can be.","I like to beat the brush.","Talk to the tree, make friends with it.","We don't make mistakes, we just have happy accidents.","You can do anything you want to do. This is your world.","We want happy paintings. Happy paintings. If you want sad things, watch the news.");
 $quoteCount = count($quotes);
@@ -30,9 +30,19 @@ if (isset($_POST["chat"])) {
 		$bobChat = "<div class=\"bob\"><p>Oh, I should draw a ".$parsed[0]."?</p></div><div class=\"clear\"></div>";
 	} else {
 		if (in_array("yes", $temp)) {
-			$bobChat = "<div class=\"bob\"><p>Alrighty then.</p></div><div class=\"clear\"></div>";
+			/*$lastParsed = (string)getLastKeyword();
+			if ($lastParsed == "") {
+				$bobChat = "<div class=\"bob\"><p>Nope.</p></div><div class=\"clear\"></div>";
+			} else {
+				$bobChat = "<div class=\"bob\"><p>Alrighty then, let's make a ".$lastParsed."</p></div><div class=\"clear\"></div>";
 			$thisQuote = rand(0, $quoteCount);
 			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
+			}*/
+			$bobChat = "<div class=\"bob\"><p>Alrighty then, let's make a ".$parsed[0]."</p></div><div class=\"clear\"></div>";
+			system('python python/'.$parsed[0].''.py');
+			$thisQuote = rand(0, $quoteCount);
+			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
+			
 		} else if (in_array("no", $temp)) {
 			$bobChat = "<div class=\"bob\"><p>Oh ok, then what?</p></div><div class=\"clear\"></div>";
 		} else if (in_array("imperial", $temp)) {
@@ -78,6 +88,26 @@ if ($_POST['reset']) {
 function addText($text) {
 	$lastLine = $text."\n";
 	file_put_contents("conversation.txt", $lastLine, FILE_APPEND | LOCK_EX);
+}
+// Get last parsed command
+function getLastKeyword() {
+	if (file_exists("conversation.txt")) {
+		$temp = file_get_contents("conversation.txt");
+		$temp2 = explode("\n", $temp);
+		$all_lines = array_reverse($temp2);
+		$lastlines = array_slice($all_lines, 0, 2);
+		$lastline = explode(" ", $lastlines);
+		$lastline = preg_replace('/[^\w\']+|\'(?!\w)|(?<!\w)\'|\d+/', ' ', $lastline);
+		$result = array_intersect($keywords, $lastline);
+		if (count($result) > 0) {
+			return $result[0];
+		} else {
+			$yes = "Yup";
+			return $yes;
+		}
+	} else {
+		return null;
+	}
 }
 ?>
 
@@ -166,7 +196,7 @@ function addText($text) {
 								}
 				        	} else {
 								echo "<div class=\"bob\"><p>Hi there! I'm glad to see you today! What shall we make today?</p></div><div class=\"clear\"></div>";
-								$thisQuote = rand(0, $quoteCount);
+								$thisQuote = rand(0, $quoteCount-1);
 								echo "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
 							}
 				         ?>
@@ -183,7 +213,7 @@ function addText($text) {
           	
          <div class="row">
 	          <div class="instructions">
-	          		RossBot is an artist, but he loves to collaborate! Give RossBot suggestions or directions as to what he should incorporate into his work. You can say things like "Draw a <a class="tag">circle</a>", "Add some <a class="tag">spirals</a>", "Give it a <a class="tag">triangle</a>", or even "Make a <a class="tag">happy little tree</a>". RossBot likes happy things. <a class="tag">Zigzags</a> make him sad.
+	          		RossBot is an artist, but he loves to collaborate! Give RossBot suggestions or directions as to what he should incorporate into his work. You can say things like "Draw a <a class="tag">circle</a>s", "Add some <a class="tag">spiral</a>s", "Give it a <a class="tag">triangle</a>", or even "Make a <a class="tag">happy little tree</a>". RossBot likes happy things. <a class="tag">Zigzag</a>'s make him sad.
 	          </div>
           </div>
 

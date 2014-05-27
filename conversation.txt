@@ -1,10 +1,10 @@
-<div class="user"><p>Draw a circle and a square</p></div><div class="clear"></div>
-<div class="bob"><p>Oh, I should draw a circle?</p></div><div class="clear"></div>
+<div class="user"><p>triangle</p></div><div class="clear"></div>
+<div class="bob"><p>Oh, I should draw a triangle?</p></div><div class="clear"></div>
 <div class="user"><p>yes</p></div><div class="clear"></div>
-<div class="bob"><p>Alrighty then.</p></div><div class="clear"></div><div class="bob"><p></p></div><div class="clear"></div>
-<div class="user"><p>Imperial march</p></div><div class="clear"></div>
-<div class="bob"><p>Lord Vader has no interest in your puny demands.</p></div><div class="clear"></div>
-<div class="user"><p>happy little tree</p></div><div class="clear"></div>
-<div class="bob"><p>Oh, I should draw a tree?</p></div><div class="clear"></div>
-<div class="user"><p>no</p></div><div class="clear"></div>
-<div class="bob"><p>Oh ok, then what?</p></div><div class="clear"></div>
+<div class="bob"><p>Nope.</p></div><div class="clear"></div>
+<div class="user"><p>yes</p></div><div class="clear"></div>
+<div class="bob"><p>Nope.</p></div><div class="clear"></div>
+<div class="user"><p>triangle</p></div><div class="clear"></div>
+<div class="bob"><p>Oh, I should draw a triangle?</p></div><div class="clear"></div>
+<div class="user"><p>yes</p></div><div class="clear"></div>
+<div class="bob"><p>Nope.</p></div><div class="clear"></div>
