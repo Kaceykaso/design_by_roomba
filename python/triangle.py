@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 # Triangle script
 # Executed when asked to draw a triangle by the user
 # Draws a 12 x 12 x 12 inch equilateral triangle
