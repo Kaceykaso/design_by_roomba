@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 # Square script
 # Executed when asked to draw a square by the user
 # Draws a 12 inch square
