@@ -1,9 +1,10 @@
+#! /usr/bin/env python
 import serial
 import time
 
 # this is the port you're connecting to the irobot with
 # on windows, this is something like COM2
-N = 2
+N = "/dev/ttyUSB0"
 
 def ints2str(lst):
     '''
