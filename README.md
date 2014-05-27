@@ -22,12 +22,14 @@ The Create draws crowdsourced, or idividual user's, picture over a period of tim
 Commands are simplistic: right turn, left turn, forward, backward.
 
 ##### Edit:
-Slight variation on theme; above has been changed into "Command Mode", with the alternative "Bob Ross Mode". In Bob Ross Mode, the Create, or RossBot, communicates with the user through the website being hosted on the Raspberry Pi. The RossBot parses keywords from the conversation to learn what the user would like to draw, and after confirming with the user, executes a Python script to draw the requested element.
+Slight variation on the theme; above has been changed into "Command Mode", with the alternative "Bob Ross Mode". In Bob Ross Mode, the Create, or RossBot, communicates with the user through the website being hosted on the Raspberry Pi. The RossBot parses keywords from the conversation to learn what the user would like to draw, and after confirming with the user, executes a Python script to draw the requested element.
 
 RossBot Commands, or keywords: circle, square, triangle, line, zigzag, tree, cloud, and test (for testing purposes).<br>
 There also may or may not be some easter egg commands.
 
 Read the [project's blog](blog) for more details and documentation.
+
+Watch the evolution of [RossBot on YouTube](https://www.youtube.com/playlist?list=PLWnhVchApyJveY8cioEd4EkjYBgywtLct).
 
 
 
