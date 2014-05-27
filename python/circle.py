@@ -1,3 +1,4 @@
+#! /usr/bin/env python
 # Circle script
 # Executed when asked to draw a circle by the user
 # Draws a 12 inch circle
