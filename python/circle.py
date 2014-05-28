@@ -14,7 +14,7 @@ robot.toFullMode()
 # Record current position, at start of drawing
 pose = robot.getPose()
 now = strftime("%H:%M:%S %m-%d-%Y")
-line = "On %s I started drawing a TRIANGLE at:\n" % now
+line = "On %s I started drawing a CIRCLE at:\n" % now
 line += "X: %s\n" % pose[0]
 line += "Y: %s\n" % pose[1]
 line += "Theta: %s\n" % pose[2]
@@ -30,7 +30,7 @@ robot.go(95.25,-37.7)
 # Record position now, at end of drawing
 new_pose = robot.getPose()
 new_now = strftime("%H:%M:%S %m-%d-%Y")
-line = "On %s I started drawing a TRIANGLE at:\n" % new_now
+line = "On %s I finished drawing a CIRCLE at:\n" % new_now
 line += "X: %s\n" % new_pose[0]
 line += "Y: %s\n" % new_pose[1]
 line += "Theta: %s\n" % new_pose[2]
