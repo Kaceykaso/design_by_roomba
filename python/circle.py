@@ -23,9 +23,9 @@ line += "Theta: %s\n" % pose[2]
 #f.closed
 
 # Draw circle
-# Circumference of circle with diameter of 12" = 37.5" (95.25cm)
-# Degrees clockwise to move: 6.283 (radians) x r = 37.698 degrees
-robot.go(95.25,-37.7)
+# Circumference of circle with diameter of 12.5" ~ 2pi(22.5) = 141
+robot.go(141,-360)
+# Will turn forever, in PHP call stop script after ~1s
 
 # Record position now, at end of drawing
 new_pose = robot.getPose()
