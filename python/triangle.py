@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # Triangle script
 # Executed when asked to draw a triangle by the user
-# Draws a 12 x 12 x 12 inch equilateral triangle
+# Draws a 45 x 45 x 45 cm equilateral triangle
 
 import serial
 import create
@@ -23,7 +23,7 @@ line += "Theta: %s\n" % pose[2]
 #f.closed
 
 # Draw triangle
-robot.move(45, 30) # 12.5" equivilent in millimeters, rounded up, 30cm/s
+robot.move(45, 30) # ~12.5" equivilent in millimeters, rounded up; at 30cm/s
 robot.turn(-120, 60) # 120 degrees clockwise, 60 degrees/s
 robot.move(45, 30)
 robot.turn(-120, 60)
