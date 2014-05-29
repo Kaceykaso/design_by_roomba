@@ -23,11 +23,11 @@ line += "Theta: %s\n" % pose[2]
 #f.closed
 
 # Draw triangle
-robot.move(305, 30) # 12" equivilent in millimeters, rounded up, 30cm/s
+robot.move(45, 30) # 12.5" equivilent in millimeters, rounded up, 30cm/s
 robot.turn(-120, 60) # 120 degrees clockwise, 60 degrees/s
-robot.move(305, 30)
+robot.move(45, 30)
 robot.turn(-120, 60)
-robot.move(305, 30)
+robot.move(45, 30)
 
 # Record position now, at end of drawing
 new_pose = robot.getPose()
