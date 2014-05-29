@@ -26,31 +26,39 @@ if (isset($_POST["chat"])) {
 			$parsed[] = $word;
 		}
 	}
-	if (count($parsed) > 0) {
-		//$bobChat = "<div class=\"bob\"><p>Oh, I should draw a ".$parsed[0]."?</p></div><div class=\"clear\"></div>";
-		$bobChat = "<div class=\"bob\"><p>Alrighty then, let's make a ".$parsed[0]."</p></div><div class=\"clear\"></div>";
-			$command = "python python/".$parsed[0].".py";
-			system($command);
-			$thisQuote = rand(0, $quoteCount);
-			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
-			if ($parsed[0] == "circle") {
-				$command = "python python/stop.py";
-				system($command);
-			}
-	} else {
-		if (in_array("yes", $temp)) {
-			/*$lastParsed = (string)getLastKeyword();
-			if ($lastParsed == "") {
-				$bobChat = "<div class=\"bob\"><p>Nope.</p></div><div class=\"clear\"></div>";
+	$total_parsed = count($parsed);
+	if ($total_parsed > 0) {
+		$bobChat = "<div class=\"bob\"><p>Alrighty then, let's make a ";
+		// List all parsed keywords
+		for ($i = 0; $i < $total_parsed; $i++) {
+			$bobChat .= $parsed[$i];
+			if ($i == $total_parsed-1) {
+				$bobChat .= ".";
 			} else {
-				$bobChat = "<div class=\"bob\"><p>Alrighty then, let's make a ".$lastParsed."</p></div><div class=\"clear\"></div>";
-			$thisQuote = rand(0, $quoteCount);
-			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
-			}*/
-			
-		} else if (in_array("no", $temp)) {
-			$bobChat = "<div class=\"bob\"><p>Oh ok, then what?</p></div><div class=\"clear\"></div>";
-		} else if (in_array("imperial", $temp)) {
+				$bobChat .= ", and then a ";
+			}
+		}
+		$bobChat .= "</p></div><div class=\"clear\"></div>";
+		$command = "";
+		// Chain as many commands as needed
+		for ($i = 0; $i < $total_parsed; $i++) {
+			$command .= "python python/".$parsed[$i].".py";
+			// Check if current shape is a circle, follow up with stop command if so
+			if ($parsed[$i] == "circle") {
+				$command .= " && python python/stop.py";
+			}
+			// Check if this is the last one, if not, add more
+			if ($i == $total_parsed-1) {
+				$command .= "";
+			} else {
+				$command .= " && ";
+			}
+		}
+		system($command);
+		$thisQuote = rand(0, $quoteCount);
+		$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
+	} else {
+		if (in_array("imperial", $temp)) {
 			$bobChat = "<div class=\"bob\"><p>Lord Vader has no interest in your puny demands.</p></div><div class=\"clear\"></div>";
 			system('python python/imperial_march.py');
 		} else if (in_array("test", $temp)) {

@@ -1,4 +1,0 @@
-<div class="user"><p>circle</p></div><div class="clear"></div>
-<div class="bob"><p>Oh, I should draw a circle?</p></div><div class="clear"></div>
-<div class="user"><p>yes, a circle</p></div><div class="clear"></div>
-<div class="bob"><p>Oh, I should draw a circle?</p></div><div class="clear"></div>
