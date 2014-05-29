@@ -23,7 +23,7 @@ line += "Theta: %s\n" % pose[2]
 #f.closed
 
 # Draw line
-robot.move(30, 30) # 12" equivilent in cm, rounded up, 30cm/s
+robot.move(45, 30) # 12.5" equivilent in cm, rounded up, 30cm/s
 
 # Record position now, at end of drawing
 new_pose = robot.getPose()
