@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # Line script
 # Executed when asked to draw a line by the user
-# Draws a 12 inch line segment
+# Draws a 45cm line segment
 
 import serial
 import create
@@ -23,7 +23,7 @@ line += "Theta: %s\n" % pose[2]
 #f.closed
 
 # Draw line
-robot.move(45, 30) # 12.5" equivilent in cm, rounded up, 30cm/s
+robot.move(45, 30) # ~12.5" equivilent in cm, rounded up; at 30cm/s
 
 # Record position now, at end of drawing
 new_pose = robot.getPose()
