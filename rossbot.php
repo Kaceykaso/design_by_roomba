@@ -33,6 +33,10 @@ if (isset($_POST["chat"])) {
 			system($command);
 			$thisQuote = rand(0, $quoteCount);
 			$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
+			if ($parsed[0] == "circle") {
+				$command = "python python/stop.py";
+				system($command);
+			}
 	} else {
 		if (in_array("yes", $temp)) {
 			/*$lastParsed = (string)getLastKeyword();
