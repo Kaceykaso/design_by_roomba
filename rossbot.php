@@ -45,6 +45,7 @@ if (isset($_POST["chat"])) {
 			$command .= "python python/".$parsed[$i].".py";
 			// Check if current shape is a circle, follow up with stop command if so
 			if ($parsed[$i] == "circle") {
+				sleep(1);
 				$command .= " && python python/stop.py";
 			}
 			// Check if this is the last one, if not, add more
