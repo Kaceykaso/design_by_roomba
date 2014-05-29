@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 # Square script
 # Executed when asked to draw a square by the user
-# Draws a 12 inch square
+# Draws a 45cm square
 
 import serial
 import create
@@ -23,7 +23,7 @@ line += "Theta: %s\n" % pose[2]
 #f.closed
 
 # Draw square
-robot.move(45, 30) #12.5" equivilent in millimeters, rounded up, 30cm/s
+robot.move(45, 30) # ~12.5" equivilent in cm, rounded up; at 30cm/s
 robot.turn(-90, 60) # 90 degrees clockwise, 60 degrees/s
 robot.move(45, 30)
 robot.turn(-90, 60)
