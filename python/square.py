@@ -9,8 +9,7 @@ from time import strftime
 
 # Create robot
 robot = create.Create("/dev/ttyUSB0")
-#robot.toFullMode()
-robot.toSafeMode()
+robot.toFullMode()
 
 while True:
   sensors = robot.sensors(create.LEFT_BUMP, create.RIGHT_BUMP)
