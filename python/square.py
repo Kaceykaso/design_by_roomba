@@ -9,7 +9,8 @@ from time import strftime
 
 # Create robot
 robot = create.Create("/dev/ttyUSB0")
-robot.toFullMode()
+#robot.toFullMode()
+robot.toSafeMode()
 
 # Record current position, at start of drawing
 pose = robot.getPose()
