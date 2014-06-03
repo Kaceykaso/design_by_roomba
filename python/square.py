@@ -12,9 +12,12 @@ robot = create.Create("/dev/ttyUSB0")
 #robot.toFullMode()
 robot.toSafeMode()
 
-sensors = robot.sensors([create.LEFT_BUMP, create.RIGHT_BUMP]) #Front bumper sesnors
-
-while not(sensors[create.LEFT_BUMP] == 1 or sensors[create.RIGHT_BUMP] == 1):
+while True:
+  sensors = robot.sensors(create.LEFT_BUMP, create.RIGHT_BUMP)
+  if sensors[create.LEFT_BUMP] > 0 or sensors[create.RIGHT_BUMP] > 0:
+    robot.move(-15,30)
+    robot.turn(-90,60)
+    break
   # Draw square
   robot.move(45, 30) # ~12.5" equivilent in cm, rounded up; at 30cm/s
   robot.turn(-90, 60) # 90 degrees clockwise, 60 degrees/s
@@ -23,6 +26,3 @@ while not(sensors[create.LEFT_BUMP] == 1 or sensors[create.RIGHT_BUMP] == 1):
   robot.move(45, 30)
   robot.turn(-90, 60)
   robot.move(45, 30)
-else:
-  robot.move(-15,30)
-  robot.turn(-90,60)
