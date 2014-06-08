@@ -30,8 +30,36 @@ s.write(ints2str([137, 1, 44, 128, 0]))
 s.write(ints2str([156, 1, 144]))
 # Turn
 s.write(ints2str([137, 1, 44, 0, 1]))
-#wait
+# wait
 s.write(ints2str([157, 0, 90]))
+
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+# wait
+s.write(ints2str([157, 0, 90]))
+
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+# wait
+s.write(ints2str([157, 0, 90]))
+
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+# wait
+s.write(ints2str([157, 0, 90]))
+
 
 s.write(ints2str([137, 0, 0, 0, 0]))
 del s;
