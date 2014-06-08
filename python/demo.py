@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 import serial
 import time
-import sys
+
 
 # Serial port
 N = "/dev/ttyUSB0"
@@ -33,6 +33,6 @@ s.write(ints2str([137, 1, 44, 0, 1]))
 #wait
 s.write(ints2str([157, 0, 90]))
 
-sys.exit()
+quit()
 
 
