@@ -1,3 +1,6 @@
+#! /usr/bin/env python
+import serial
+import time
 
 Serial device(p9, p10);  // tx, rx
  
