@@ -21,8 +21,43 @@ s = serial.Serial(N, 57600, timeout=4)
 # start code
 s.write(ints2str([128]))
 # Full mode
-s.write(ints2str([131]))
+s.write(ints2str([132]))
 
 # Drive
-s.write(ints2str([137, 0, 100, 128, 0]))
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+#wait
+s.write(ints2str([157, 0, 90]))
 
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+#wait
+s.write(ints2str([157, 0, 90]))
+
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+#wait
+s.write(ints2str([157, 0, 90]))
+
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+#wait
+s.write(ints2str([157, 0, 90]))
+
+s.write(ints2str([140, 0, 62, 12, 66, 12, 69, 12,74, 36]))
+s.write(ints2str([141, 0]))
