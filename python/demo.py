@@ -54,8 +54,6 @@ s.write(ints2str([157, 0, 90]))
 s.write(ints2str([137, 1, 44, 128, 0]))
 # wait
 s.write(ints2str([156, 1, 144]))
-# Turn
+# Stop
 s.write(ints2str([137, 0, 0, 0, 0]))
 
-s.write(ints2str([140, 0, 62, 12, 66, 12, 69, 12,74, 36]))
-s.write(ints2str([141, 0]))
