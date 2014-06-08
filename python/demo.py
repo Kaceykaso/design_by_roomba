@@ -31,9 +31,8 @@ s.write(ints2str([132]))
 #s.write(ints2str([137, 1, 44, 0, 1]))
 #wait
 #s.write(ints2str([157, 0, 90]))
-s.write(ints2str([152, 13]))
 s.write(ints2str([137, 1, 44, 128, 0]))
 s.write(ints2str([156, 1, 144]))
-s.write(ints2str([137, 0, 0, 0, 0]))
+s.write(ints2str([137, 1, 44, 0, 0]))
 
 
