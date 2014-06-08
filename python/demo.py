@@ -21,9 +21,8 @@ s = serial.Serial(N, 57600, timeout=4)
 # start code
 s.write(ints2str([128]))
 # Full mode
-s.write(ints2str([132]))
+s.write(ints2str([131]))
 
 # Drive
-#s.write(ints2str([137, 0, 100, 128, 0]))
-s.write(ints2str([152, 17, 137, 1, 44, 128, 0, 156, 1, 144, 137, 1, 44, 0, 1, 157, 0, 90]))
-s.write(ints2str([153]))
+s.write(ints2str([137, 0, 100, 128, 0]))
+
