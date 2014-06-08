@@ -33,6 +33,7 @@ s.write(ints2str([137, 1, 44, 0, 1]))
 #wait
 s.write(ints2str([157, 0, 90]))
 
-quit()
+del s;
+sys.exit()
 
 
