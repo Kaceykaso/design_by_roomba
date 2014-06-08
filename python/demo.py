@@ -1,7 +1,7 @@
 #! /usr/bin/env python
 import serial
 import time
-
+import sys
 
 # Serial port
 N = "/dev/ttyUSB0"
