@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 import serial
 import time
+import sys
 
 # Serial port
 N = "/dev/ttyUSB0"
@@ -24,15 +25,14 @@ s.write(ints2str([128]))
 s.write(ints2str([132]))
 
 # Drive
-#s.write(ints2str([137, 1, 44, 128, 0]))
-# wait
-#s.write(ints2str([156, 1, 144]))
-# Turn
-#s.write(ints2str([137, 1, 44, 0, 1]))
-#wait
-#s.write(ints2str([157, 0, 90]))
 s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
 s.write(ints2str([156, 1, 144]))
-s.write(ints2str([137, 1, 44, 0, 0]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+#wait
+s.write(ints2str([157, 0, 90]))
+
+sys.exit()
 
 
