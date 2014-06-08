@@ -1,27 +1,68 @@
 #! /usr/bin/env python
-# Square script
-# Executed when asked to draw a square by the user
-# Draws a 45cm square
-
 import serial
-import create
-from time import strftime
+import time
+import sys
 
-# Create robot
-robot = create.Create("/dev/ttyUSB0")
-robot.toFullMode()
+# Serial port
+N = "/dev/ttyUSB0"
 
-while True:
-  sensors = robot.sensors([create.LEFT_BUMP, create.RIGHT_BUMP])
-  if sensors[create.LEFT_BUMP] == 0 or sensors[create.RIGHT_BUMP] == 0:
-    # Draw square
-    robot.move(45, 30) # ~12.5" equivilent in cm, rounded up; at 30cm/s
-    robot.turn(-90, 60) # 90 degrees clockwise, 60 degrees/s
-    robot.move(45, 30)
-    robot.turn(-90, 60)
-    robot.move(45, 30)
-    robot.turn(-90, 60)
-    robot.move(45, 30)
-  else:
-    robot.move(-15,30)
-    robot.turn(-90,60)
+def ints2str(lst):
+    '''
+    Taking a list of notes/lengths, convert it to a string
+    '''
+    s = ""
+    for i in lst:
+        if i < 0 or i > 255:
+            raise Exception
+        s = s + str(chr(i))
+    return s
+
+# do some initialization magic
+s = serial.Serial(N, 57600, timeout=4)
+# start code
+s.write(ints2str([128]))
+# Full mode
+s.write(ints2str([132]))
+
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+# wait
+s.write(ints2str([157, 0, 90]))
+
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+# wait
+s.write(ints2str([157, 0, 90]))
+
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+# wait
+s.write(ints2str([157, 0, 90]))
+
+# Drive
+s.write(ints2str([137, 1, 44, 128, 0]))
+# wait
+s.write(ints2str([156, 1, 144]))
+# Turn
+s.write(ints2str([137, 1, 44, 0, 1]))
+# wait
+s.write(ints2str([157, 0, 90]))
+
+
+s.write(ints2str([137, 0, 0, 0, 0]))
+del s;
+sys.exit()
+
+
