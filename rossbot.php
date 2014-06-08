@@ -2,10 +2,11 @@
 date_default_timezone_set('America/Los_Angeles');
 $file = "conversation.txt";
 // Simple shapes to draw
-$keywords = array("circle","square","triangle", "line");
+$keywords = array("circle","square","triangle", "line", "spiral", "tree");
 // Bob Ross quotes
 $quotes = array("You know me, I gotta put in a big tree.","Here's your bravery test!","Any time ya learn, ya gain.","Haha, and just beat the devil out of it.","Clouds are very, very free.","Happy as we can be.","I like to beat the brush.","Talk to the tree, make friends with it.","We don't make mistakes, we just have happy accidents.","You can do anything you want to do. This is your world.","We want happy paintings. Happy paintings. If you want sad things, watch the news.");
 $quoteCount = count($quotes);
+
 
 // Check for user input
 if (isset($_POST["chat"])) {
@@ -13,12 +14,13 @@ if (isset($_POST["chat"])) {
 	$thisChat = $_POST["chat"];
 	$userChat = "<div class=\"user\"><p>".$_POST["chat"]."</p></div><div class=\"clear\"></div>";
 	addText($userChat);
+	$bobChat = "";
 	// Make everything lowercase
 	$thisChat = strtolower($thisChat);
 	// Parse user input
 	$temp = explode(" ", $thisChat);
 	// Strip out weird characters
-	$temp = preg_replace('/[.,]+/', '', $temp);
+	$temp = preg_replace('/[.,?!&*_;]+/', '', $temp);
 	// Search for keywords
 	$parsed = array();
 	foreach ($temp as $word) {
@@ -27,8 +29,10 @@ if (isset($_POST["chat"])) {
 		}
 	}
 	$total_parsed = count($parsed);
+	
+		
 	if ($total_parsed > 0) {
-		$bobChat = "<div class=\"bob\"><p>Alrighty then, let's make a ";
+		$bobChat .= "<div class=\"bob\"><p>Alrighty then, let's make a ";
 		// List all parsed keywords
 		for ($i = 0; $i < $total_parsed; $i++) {
 			$bobChat .= $parsed[$i];
@@ -43,8 +47,13 @@ if (isset($_POST["chat"])) {
 		// Chain as many commands as needed
 		for ($i = 0; $i < $total_parsed; $i++) {
 			$command .= "python python/".$parsed[$i].".py";
+			if ($parsed[$i] == "line") { addLine(); }
+			if ($parsed[$i] == "spiral") { addSpiral(); }
+			if ($parsed[$i] == "square") { addSquare(); }
+			if ($parsed[$i] == "triangle") { addTriangle(); }
 			// Check if current shape is a circle, follow up with stop command if so
 			if ($parsed[$i] == "circle") {
+				addCircle();
 				sleep(1);
 				$command .= " && python python/stop.py";
 			}
@@ -57,6 +66,55 @@ if (isset($_POST["chat"])) {
 		}
 		system($command);
 		$thisQuote = rand(0, $quoteCount);
+		
+		// Check number of each shape drawn so far, respond in kind
+		if (getCircle() > 4) {
+			$bobChat .= "<div class=\"bob\"><p>I SAID SOMETHING NEW! I'm adding a triangle!</p></div><div class=\"clear\"></div>";
+			addTriangle();
+			$command = "python python/triangle.py";
+			system($command);
+		} else if (getCircle() > 3) {
+			$bobChat .= "<div class=\"bob\"><p>That's a lot of circles! Maybe something new next time?</p></div><div class=\"clear\"></div>";
+		}
+		
+		if (getLine() > 4) {
+			$bobChat .= "<div class=\"bob\"><p>I SAID SOMETHING NEW! I'm adding a spiral!</p></div><div class=\"clear\"></div>";
+			addSpiral();
+			$command = "python python/spiral.py";
+			system($command);
+		} else if (getLine() > 3) {
+			$bobChat .= "<div class=\"bob\"><p>That's a lot of lines! Maybe something new next time?</p></div><div class=\"clear\"></div>";
+		}
+		
+		if (getSpiral() > 4) {
+			$bobChat .= "<div class=\"bob\"><p>I SAID SOMETHING NEW! I'm adding a circle!</p></div><div class=\"clear\"></div>";
+			addCircle();
+			$command = "python python/circle.py";
+			system($command);
+		} else if (getSpiral() > 3) {
+			$bobChat .= "<div class=\"bob\"><p>That's a lot of spirals! Maybe something new next time?</p></div><div class=\"clear\"></div>";
+		}
+		
+		if (getSquare() > 4) {
+			$bobChat .= "<div class=\"bob\"><p>I SAID SOMETHING NEW! I'm adding a line!</p></div><div class=\"clear\"></div>";
+			addLine();
+			$command = "python python/line.py";
+			system($command);
+		} else if (getSquare() > 3) {
+			$bobChat .= "<div class=\"bob\"><p>That's a lot of squares! Maybe something new next time?</p></div><div class=\"clear\"></div>";
+		}
+		
+		if (getTriangle() > 4) {
+			$bobChat .= "<div class=\"bob\"><p>I SAID SOMETHING NEW! I'm adding a square!</p></div><div class=\"clear\"></div>";
+			addSquare();
+			$command = "python python/sqare.py";
+			system($command);
+		} else if (getTriangle() > 3) {
+			$bobChat .= "<div class=\"bob\"><p>That's a lot of triangles! Maybe something new next time?</p></div><div class=\"clear\"></div>";
+		}
+		
+		// Other responses
+		if (in_array("tree", $temp)) {$bobChat .= "<div class=\"bob\"><p>I really love trees, great choice!</p></div><div class=\"clear\"></div>";}
 		$bobChat .= "<div class=\"bob\"><p>".$quotes[$thisQuote]."</p></div><div class=\"clear\"></div>";
 	} else {
 		if (in_array("imperial", $temp)) {
@@ -65,6 +123,8 @@ if (isset($_POST["chat"])) {
 		} else if (in_array("test", $temp)) {
 			$bobChat = "<div class=\"bob\"><p>Running test script.</p></div><div class=\"clear\"></div>";
 			system('python python/test2.py');
+		} else if (in_array("love", $temp)) {
+			$bobChat = "<div class=\"bob\"><p>What do I love? I love trees!</p><p>Happy little trees.</p></div><div class=\"clear\"></div>";
 		} else {
 			$bobChat = "<div class=\"bob\"><p>I can't draw that. How about a happy little tree?</p></div><div class=\"clear\"></div>";
 		}
@@ -94,35 +154,46 @@ function checkTime() {
 
 // Reset
 if ($_POST['reset']) {
-	if (file_exists($file)) {
-		unlink($file);
-	}
+	if (file_exists($file)) { unlink($file); }
+	file_put_contents("circle.txt", 0);
+	file_put_contents("line.txt", 0);
+	file_put_contents("spiral.txt", 0);
+	file_put_contents("square.txt", 0);
+	file_put_contents("triangle.txt", 0);
 }
 // Conversation
 function addText($text) {
 	$lastLine = $text."\n";
 	file_put_contents("conversation.txt", $lastLine, FILE_APPEND | LOCK_EX);
 }
-// Get last parsed command
-/*function getLastKeyword() {
-	if (file_exists("conversation.txt")) {
-		$temp = file_get_contents("conversation.txt");
-		$temp2 = explode("\n", $temp);
-		$all_lines = array_reverse($temp2);
-		$lastlines = array_slice($all_lines, 0, 2);
-		$lastline = explode(" ", $lastlines);
-		$lastline = preg_replace('/[^\w\']+|\'(?!\w)|(?<!\w)\'|\d+/', ' ', $lastline);
-		$result = array_intersect($keywords, $lastline);
-		if (count($result) > 0) {
-			return $result[0];
-		} else {
-			$yes = "Yup";
-			return $yes;
-		}
-	} else {
-		return null;
-	}
-}*/
+// Get counts 
+function getCircle() { return (int)file_get_contents("circle.txt"); }
+function getLine() { return (int)file_get_contents("line.txt"); }
+function getSpiral() { return (int)file_get_contents("spiral.txt"); }
+function getSquare() { return (int)file_get_contents("square.txt"); }
+function getTriangle() { return (int)file_get_contents("triangle.txt"); }
+// Records counts
+function addCircle() {
+	$circleCount = getCircle() + 1;
+	file_put_contents("circle.txt", $circleCount);
+}
+function addLine() {
+	$lineCount = getLine() + 1;
+	file_put_contents("line.txt", $lineCount);
+}
+function addSpiral() {
+	$spiralCount = getSpiral() + 1;
+	file_put_contents("spiral.txt", $spiralCount);
+}
+function addSquare() {
+	$squareCount = getSquare() + 1;
+	file_put_contents("square.txt", $squareCount);
+}
+function addTriangle() {
+	$triangleCount = getTriangle() + 1;
+	file_put_contents("triangle.txt", $triangleCount);
+}
+
 ?>
 
 <!DOCTYPE html>
