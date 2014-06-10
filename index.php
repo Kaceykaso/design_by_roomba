@@ -263,8 +263,8 @@ function addTriangle() {
 			    <!-- Everything else -->
 			    <div class="collapse navbar-collapse">
 			      <ul class="nav navbar-nav pull-right">
-			      	<li><a href="index.php">Command Mode</a></li>
-			        <li><a href="about.html">About</a></li>
+			        <li><a href="https://github.com/Kaceykaso/design_by_roomba/tree/gh-pages/blog">About</a></li>
+			        <li><a href="https://www.youtube.com/playlist?list=PLWnhVchApyJveY8cioEd4EkjYBgywtLct">Videos</a></li>
 			        <li><a href="https://github.com/Kaceykaso/design_by_roomba/tree/gh-pages">Fork Me!</a></li>
 			        
 			      </ul>
