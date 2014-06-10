@@ -1,8 +1,0 @@
-<div class="user"><p>Draw a circle!</p></div><div class="clear"></div>
-<div class="bob"><p>Alrighty then, let's make a circle.</p></div><div class="clear"></div><div class="bob"><p></p></div><div class="clear"></div>
-<div class="user"><p>What do you love?</p></div><div class="clear"></div>
-<div class="bob"><p>What do I love? I love trees!</p><p>Happy little trees.</p></div><div class="clear"></div>
-<div class="user"><p>Zigzag</p></div><div class="clear"></div>
-<div class="bob"><p>I can't draw that. How about a happy little tree?</p></div><div class="clear"></div>
-<div class="user"><p>happy little tree</p></div><div class="clear"></div>
-<div class="bob"><p>Alrighty then, let's make a tree.</p></div><div class="clear"></div><div class="bob"><p>I really love trees, great choice!</p></div><div class="clear"></div><div class="bob"><p></p></div><div class="clear"></div>

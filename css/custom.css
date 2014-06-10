@@ -133,13 +133,28 @@ body {
 	width: inherit;
 }
 .picture-container .bob {
-	background: url('../img/bob_8bit.png') left bottom no-repeat scroll;
+	background: url('../img/bob_8bit.png') center bottom no-repeat scroll;
 	height: 100%;
 	left: 0;
-	position: absolute;
+	position: relative;
 	bottom: 0;
-	width: 300px;
+	width: inherit;
 	z-index: 2;
+}
+.picture-container .bob.painting {
+	background: url('../img/bob_painting.png') center bottom no-repeat scroll;
+}
+.picture-container .bob.unsure {
+	background: url('../img/bob_unsure.png') center bottom no-repeat scroll;
+}
+.picture-container .bob.upset {
+	background: url('../img/bob_upset.png') center bottom no-repeat scroll;
+}
+.picture-container .bob.love {
+	background: url('../img/love.png') center bottom no-repeat scroll;
+}
+.picture-container .bob.stormtrooper {
+	background: url('../img/stormtrooper.png') center bottom no-repeat scroll;
 }
 .preview-window {
 	background: #fff;
@@ -205,7 +220,7 @@ body {
 .chat-transcript .user {
 	background:#E5E5EA;
 	color: black;
-  float: left;
+	float: left;
 }	
 .chat-transcript .user:before {
 		content:"";
