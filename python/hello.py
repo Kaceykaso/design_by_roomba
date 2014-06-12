@@ -1,5 +1,7 @@
+#! /usr/bin/env python
 # Saying hello with song
-import Create
+import serial
+import create
 
 
 
