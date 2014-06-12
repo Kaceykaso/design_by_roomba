@@ -75,6 +75,7 @@ if (isset($_POST["chat"])) {
 			addTriangle();
 			$command = "python python/triangle.py";
 			system($command);
+			file_put_contents("circle.txt", 0); // reset
 		} else if ((getCircle() > 3) && ($circle_warning == 1)) {
 			$alt_bob = "unsure";
 			$bobChat .= "<div class=\"bob\"><p>That's a lot of circles! Maybe something new next time?</p></div><div class=\"clear\"></div>";
@@ -85,38 +86,50 @@ if (isset($_POST["chat"])) {
 		}
 		
 		if (getLine() > 4) {
+			$alt_bob = "upset";
 			$bobChat .= "<div class=\"bob\"><p>I SAID SOMETHING NEW! I'm adding a spiral!</p></div><div class=\"clear\"></div>";
 			addSpiral();
 			$command = "python python/spiral.py";
 			system($command);
+			file_put_contents("line.txt", 0); // reset
 		} else if (getLine() > 3) {
+			$alt_bob = "unsure";
 			$bobChat .= "<div class=\"bob\"><p>That's a lot of lines! Maybe something new next time?</p></div><div class=\"clear\"></div>";
 		}
 		
 		if (getSpiral() > 4) {
+			$alt_bob = "upset";
 			$bobChat .= "<div class=\"bob\"><p>I SAID SOMETHING NEW! I'm adding a circle!</p></div><div class=\"clear\"></div>";
 			addCircle();
 			$command = "python python/circle.py";
 			system($command);
+			file_put_contents("spiral.txt", 0); // reset
 		} else if (getSpiral() > 3) {
+			$alt_bob = "unsure";
 			$bobChat .= "<div class=\"bob\"><p>That's a lot of spirals! Maybe something new next time?</p></div><div class=\"clear\"></div>";
 		}
 		
 		if (getSquare() > 4) {
+			$alt_bob = "upset";
 			$bobChat .= "<div class=\"bob\"><p>I SAID SOMETHING NEW! I'm adding a line!</p></div><div class=\"clear\"></div>";
 			addLine();
 			$command = "python python/line.py";
 			system($command);
+			file_put_contents("square.txt", 0); // reset
 		} else if (getSquare() > 3) {
+			$alt_bob = "unsure";
 			$bobChat .= "<div class=\"bob\"><p>That's a lot of squares! Maybe something new next time?</p></div><div class=\"clear\"></div>";
 		}
 		
 		if (getTriangle() > 4) {
+			$alt_bob = "upset";
 			$bobChat .= "<div class=\"bob\"><p>I SAID SOMETHING NEW! I'm adding a square!</p></div><div class=\"clear\"></div>";
 			addSquare();
-			$command = "python python/sqare.py";
+			$command = "python python/square.py";
 			system($command);
+			file_put_contents("triangle.txt", 0); // reset
 		} else if (getTriangle() > 3) {
+			$alt_bob = "unsure";
 			$bobChat .= "<div class=\"bob\"><p>That's a lot of triangles! Maybe something new next time?</p></div><div class=\"clear\"></div>";
 		}
 		
@@ -136,6 +149,11 @@ if (isset($_POST["chat"])) {
 		} else if (in_array("love", $temp)) {
 			$alt_bob = "love";
 			$bobChat = "<div class=\"bob\"><p>What do I love? I love trees!</p><p>Happy little trees.</p></div><div class=\"clear\"></div>";
+		} else if (in_array("hello", $temp)) {
+			$alt_bob = "";
+			$bobChat = "<div class=\"bob\"><p>Hello there!</p></div><div class=\"clear\"></div>";
+			$command = "python python/hello.py";
+			system($command);
 		} else {
 			$bobChat = "<div class=\"bob\"><p>I can't draw that. How about a happy little tree?</p></div><div class=\"clear\"></div>";
 			$alt_bob = "";
