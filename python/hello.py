@@ -3,9 +3,9 @@
 import serial
 import create
 
-
-
-
+# Create robot
+robot = create.Create("/dev/ttyUSB0")
+robot.toFullMode()
 
 # Song
 robot.playSong( [(60,8),(64,8),(67,8),(72,8)] ) # C chord
