@@ -7,6 +7,7 @@ A web-controled iRobot Create (Roomba), via a webserver hosted on a connected Ra
 
  - [Concept](#concept)
   - [Blog](../../wiki)
+  - [Videos](#videos)
  - [Research](#research)
  - [Author](#author)
  - [License](#license)
@@ -29,6 +30,7 @@ There also may or may not be some easter egg commands.
 
 Read the [project's blog](../../wiki) for more details and documentation.
 
+#### Videos
 Watch the evolution of [RossBot on YouTube](https://www.youtube.com/playlist?list=PLWnhVchApyJveY8cioEd4EkjYBgywtLct).
 
 
