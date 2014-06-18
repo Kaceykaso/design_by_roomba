@@ -1,6 +1,6 @@
 #<a href="http://kaceykaso.github.io/design_by_roomba/index.html">Design by Roomba</a>
 
-A picture drawn over a period of time by a iRobot Create (Roomba); based on a series of commands submitted through a website, and received by a Raspberry Pi attached to the Create.
+A web-controled iRobot Create (Roomba), via a webserver hosted on a connected Raspberry Pi, that allows the user to command the robot to draw a series of shapes. Can be controlled by multiple users at a time.
 
 
 ##Table of Contents
