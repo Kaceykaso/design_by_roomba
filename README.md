@@ -6,7 +6,7 @@ A picture drawn over a period of time by a iRobot Create (Roomba); based on a se
 ##Table of Contents
 
  - [Concept](#concept)
-  - [Blog](blog)
+  - [Blog](./wiki)
  - [Research](#research)
  - [Authors](#authors)
  - [License](#license)
@@ -27,7 +27,7 @@ Slight variation on the theme; above has been changed into "Command Mode", with 
 RossBot Commands, or keywords: circle, square, triangle, line, zigzag, tree, cloud, and test (for testing purposes).<br>
 There also may or may not be some easter egg commands.
 
-Read the [project's blog](blog) for more details and documentation.
+Read the [project's blog](./wiki) for more details and documentation.
 
 Watch the evolution of [RossBot on YouTube](https://www.youtube.com/playlist?list=PLWnhVchApyJveY8cioEd4EkjYBgywtLct).
 
