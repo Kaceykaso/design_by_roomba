@@ -1,12 +1,12 @@
 <?php
 date_default_timezone_set('America/Los_Angeles');
+// Save transcript of conversation
 $file = "conversation.txt";
 // Simple shapes to draw
 $keywords = array("circle","square","triangle", "line", "spiral", "tree");
 // Bob Ross quotes
 $quotes = array("You know me, I gotta put in a big tree.","Here's your bravery test!","Any time ya learn, ya gain.","Haha, and just beat the devil out of it.","Clouds are very, very free.","Happy as we can be.","I like to beat the brush.","Talk to the tree, make friends with it.","We don't make mistakes, we just have happy accidents.","You can do anything you want to do. This is your world.","We want happy paintings. Happy paintings. If you want sad things, watch the news.");
 $quoteCount = count($quotes);
-$circle_warning = 0;
 
 // Check for user input
 if (isset($_POST["chat"])) {
@@ -30,7 +30,7 @@ if (isset($_POST["chat"])) {
 	}
 	$total_parsed = count($parsed);
 	
-		
+	// If anything is parsed, do something	
 	if ($total_parsed > 0) {
 		$alt_bob = "painting";
 		$bobChat .= "<div class=\"bob\"><p>Alrighty then, let's make a ";
@@ -76,11 +76,9 @@ if (isset($_POST["chat"])) {
 			$command = "python python/triangle.py";
 			system($command);
 			file_put_contents("circle.txt", 0); // reset
-		} else if ((getCircle() > 3) && ($circle_warning == 1)) {
+		} else if (getCircle() > 3) {
 			$alt_bob = "unsure";
 			$bobChat .= "<div class=\"bob\"><p>That's a lot of circles! Maybe something new next time?</p></div><div class=\"clear\"></div>";
-			$circle_warning++;
-			echo $alt_bob.": ".$circle_warning;
 		} else {
 			$alt_bob = "painting";
 		}
@@ -160,27 +158,8 @@ if (isset($_POST["chat"])) {
 		}
 
 	}
+	// Give response
 	addText($bobChat);
-	$lastTime = date('h:i:s A');
-}
-
-
-// Check for keywords
-
-// Translate keywords to commands
-
-	// Give feedback that command is being executed
-	
-	// Give feedback when finished
-	
-// Give feedback on piece as a whole so far
-
-
-
-// If its been a while, chat a bit, say something Bob Ross-ish
-function checkTime() {
-	$timeStamp = date('h:i:s A');
-	return $timeStamp;
 }
 
 // Reset
@@ -252,6 +231,7 @@ function addTriangle() {
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script type="text/javascript">
+    	// Save scroll position of page after refresh
 	function saveScrollPositions(theForm) {
 	
 		if(theForm) {
@@ -301,7 +281,7 @@ function addTriangle() {
           <div class="row">
 	      	<div class="chat-container">
 	          	<div class="chat-transcript" id="chat-transcript">
-	          			<?php 
+	          			<?php  // Read conversation and display
 				        	if (file_exists($file)) {
 					        	$read = file_get_contents($file);
 								$chats = explode("\n", $read);
@@ -327,7 +307,7 @@ function addTriangle() {
           	
          <div class="row">
 	          <div class="instructions">
-	          		RossBot is an artist, but he loves to collaborate! Give RossBot suggestions or directions as to what he should incorporate into his work. You can say things like "Draw a <a class="tag">circle</a>s", "Add some <a class="tag">spiral</a>s", "Give it a <a class="tag">triangle</a>", or even "Make a <a class="tag">happy little tree</a>". RossBot likes happy things. <a class="tag">Zigzag</a>'s make him sad.
+	          	RossBot is an artist, but he loves to collaborate! Give RossBot suggestions or directions as to what he should incorporate into his work. You can say things like "Draw a <a class="tag">circle</a>s", "Add some <a class="tag">spiral</a>s", "Give it a <a class="tag">triangle</a>", or even "Make a <a class="tag">happy little tree</a>". RossBot likes happy things. <a class="tag">Zigzag</a>'s make him sad.
 	          </div>
           </div>
 
@@ -371,6 +351,7 @@ function addTriangle() {
 	});
     </script>
     <?php
+    	// More scroll-saving stuffs
 	$scrollx = 0;
 	$scrolly = 0;
 	if(!empty($_REQUEST['scrollx'])) {
@@ -382,6 +363,7 @@ function addTriangle() {
 	}
 	?>
 	<script type="text/javascript">
+	// EVEN MOAR scroll-saving stuffs
 	window.scrollTo(<?php echo "$scrollx" ?>, <?php echo "$scrolly" ?>);
 	var objDiv = document.getElementById("chat-transcript");
 	objDiv.scrollTop = objDiv.scrollHeight;
