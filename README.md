@@ -8,7 +8,7 @@ A picture drawn over a period of time by a iRobot Create (Roomba); based on a se
  - [Concept](#concept)
   - [Blog](../../wiki)
  - [Research](#research)
- - [Authors](#authors)
+ - [Author](#author)
  - [License](#license)
 
 
@@ -64,7 +64,7 @@ Tools, Libraries, Interesting things:
 
 
 
-## Authors
+## Author
 
 **Kacey Coughlin**
  - <http://www.kaceycoughlin.com>
