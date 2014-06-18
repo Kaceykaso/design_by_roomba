@@ -6,7 +6,7 @@ A picture drawn over a period of time by a iRobot Create (Roomba); based on a se
 ##Table of Contents
 
  - [Concept](#concept)
-  - [Blog](../wiki)
+  - [Blog](../../wiki)
  - [Research](#research)
  - [Authors](#authors)
  - [License](#license)
