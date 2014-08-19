@@ -1,6 +1,6 @@
 #<a href="http://kaceykaso.github.io/design_by_roomba/index.html">Design by Roomba</a>
 
-A web-controled iRobot Create (Roomba), via a webserver hosted on a connected Raspberry Pi, that allows the user to command the robot to draw a series of shapes. Can be controlled by multiple users at a time.
+A web-controlled iRobot Create (Roomba), via a webserver hosted on a connected Raspberry Pi, that allows the user to command the robot to draw a series of shapes. Can be controlled by multiple users at a time.
 
 
 ##Table of Contents
@@ -18,7 +18,7 @@ A web-controled iRobot Create (Roomba), via a webserver hosted on a connected Ra
 
 Design by Committee by Design
 
-The Create draws crowdsourced, or idividual user's, picture over a period of time; based on a series of commands submitted through a web app, and received by a Raspberry Pi ~~(or Arduino)~~ attached to the Create. Picture will be created during a gallery exhibition over an hour or two, with users at laptop/tablet stations, sending commands via the website.
+The Create draws crowdsourced, or individual user's, picture over a period of time; based on a series of commands submitted through a web app, and received by a Raspberry Pi ~~(or Arduino)~~ attached to the Create. Picture will be created during a gallery exhibition over an hour or two, with users at laptop/tablet stations, sending commands via the website.
 
 Commands are simplistic: right turn, left turn, forward, backward.
 
